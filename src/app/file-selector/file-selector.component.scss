@@ -1,0 +1,8 @@
+img {
+  max-width: 200px;
+  margin: 10px;
+}
+
+div[tabindex="0"]:focus {
+  outline: 2px solid #007bff;
+}

@@ -1,0 +1,19 @@
+<div>
+    <input type="file" webkitdirectory directory (change)="onFolderSelect($event)" />
+    <img [src]="images[currentImageIndex]" alt="Image from folder" />
+</div>
+<p-button (onClick)="imageStep(1)" label="Next" />
+<p-button (onClick)="imageStep(-1)" label="Perv" />
+<input type="checkbox" id="scales" name="scales" checked />
+<input type="checkbox" id="scale" name="scales" checked />
+<!-- checkbox.component.html -->
+<div *ngFor="let item of items">
+    
+    <input 
+      type="checkbox" 
+      [checked]="item.checked"
+      (keydown.enter)="toggleCheckbox(item, $event)">
+    {{ item.name }}
+</div>
+
+  
