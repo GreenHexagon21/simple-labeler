@@ -1,0 +1,16 @@
+img {
+    max-width: 20vw;
+    margin: 10px;
+    border-radius: 0.5rem;
+    border: solid grey
+  }
+
+.checkbox-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    border: solid;
+    border-radius: 0.5rem;
+}

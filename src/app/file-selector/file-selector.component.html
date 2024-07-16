@@ -1,19 +1,24 @@
-<div>
+<div class="file-selector-flex">
+  <div class="inputs-flex">
     <input type="file" webkitdirectory directory (change)="onFolderSelect($event)" />
-    <img [src]="images[currentImageIndex]" alt="Image from folder" />
+    <img *ngIf="images.length > 0" [src]="images[currentImageIndex]?.url" alt="Image from folder" />
+    <div *ngIf="images.length > 0" class="buttons-flex">
+      <p-button (onClick)="imageStep(1)" label="Next"></p-button>
+      <input class="image-number" [(ngModel)]="currentImageIndex" type="text">
+      <p-button (onClick)="imageStep(-1)" label="Prev"></p-button>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="images.length > 0">
+      <div *ngFor="let group of data">
+        <div *ngIf="group.tags">
+          <div *ngFor="let tag of group.tags; let i = index">
+            <app-image-checkbox [image]=" findImage(tag.example)" [checked]="false" [label]="tag.name"
+              (focusPreviousCheckbox)="focusPreviousCheckbox(i)" (focusNextCheckbox)="focusNextCheckbox(i)">
+            </app-image-checkbox>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<p-button (onClick)="imageStep(1)" label="Next" />
-<p-button (onClick)="imageStep(-1)" label="Perv" />
-<input type="checkbox" id="scales" name="scales" checked />
-<input type="checkbox" id="scale" name="scales" checked />
-<!-- checkbox.component.html -->
-<div *ngFor="let item of items">
-    
-    <input 
-      type="checkbox" 
-      [checked]="item.checked"
-      (keydown.enter)="toggleCheckbox(item, $event)">
-    {{ item.name }}
-</div>
-
-  

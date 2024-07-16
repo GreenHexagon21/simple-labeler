@@ -1,8 +1,37 @@
 img {
-  max-width: 200px;
+  max-width: 40vw;
   margin: 10px;
+  border-radius: 0.5rem;
+}
+
+.image-number {
+  width: 4vw;
 }
 
 div[tabindex="0"]:focus {
   outline: 2px solid #007bff;
+}
+
+.file-selector-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.buttons-flex {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.inputs-flex {
+  display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
 }

@@ -1,21 +1,41 @@
-import { Component, Input } from '@angular/core';
+// app-image-checkbox.component.ts
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-image-checkbox',
   templateUrl: './image-checkbox.component.html',
-  styleUrl: './image-checkbox.component.scss'
+  styleUrls: ['./image-checkbox.component.scss']
 })
 export class ImageCheckboxComponent {
-
+  @Input() checked: boolean = false;
+  @Input() label: string;
   @Input() image;
-  @Input() checked;
-  @Input() label;
+  @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
 
-  toggleCheckbox(event: KeyboardEvent): void {
-    if (event.key === 'Enter') {
-      this.checked;
-      event.preventDefault(); // Prevents the default action of the enter key
+  handleKeydown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case 'Enter':
+        this.checked = !this.checked;
+        event.preventDefault();
+        break;
+      case 'ArrowUp':
+        this.focusPreviousCheckbox();
+        event.preventDefault();
+        break;
+      case 'ArrowDown':
+        this.focusNextCheckbox();
+        event.preventDefault();
+        break;
     }
   }
 
+  focusPreviousCheckbox(): void {
+    // Custom event to notify parent to focus the previous checkbox
+    this.checkbox.nativeElement.dispatchEvent(new CustomEvent('focusPreviousCheckbox', { bubbles: true }));
+  }
+
+  focusNextCheckbox(): void {
+    // Custom event to notify parent to focus the next checkbox
+    this.checkbox.nativeElement.dispatchEvent(new CustomEvent('focusNextCheckbox', { bubbles: true }));
+  }
 }

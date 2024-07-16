@@ -9,6 +9,7 @@ import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
 import { ImageCheckboxComponent } from './image-checkbox/image-checkbox.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ImageCheckboxComponent } from './image-checkbox/image-checkbox.componen
     ButtonModule,
     CheckboxModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
