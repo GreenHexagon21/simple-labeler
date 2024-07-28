@@ -1,5 +1,4 @@
-// app-image-checkbox.component.ts
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, Output, EventEmitter, ViewChild, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-image-checkbox',
@@ -9,9 +8,11 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 export class ImageCheckboxComponent {
   @Input() checked: boolean = false;
   @Input() label: string;
-  @Input() image;
+  @Input() image: string;
   @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
+  @Output() checkboxChanged = new EventEmitter<string>();
 
+  @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
     switch (event.key) {
       case 'Enter':
@@ -29,13 +30,25 @@ export class ImageCheckboxComponent {
     }
   }
 
+  toggleCheckbox(): void {
+    this.checked = !this.checked;
+    this.checkbox.nativeElement.checked = this.checked; // Ensure the checkbox state is visually updated
+    this.checkboxChanged.emit(this.checked ? this.label : '');
+  }
+
   focusPreviousCheckbox(): void {
-    // Custom event to notify parent to focus the previous checkbox
-    this.checkbox.nativeElement.dispatchEvent(new CustomEvent('focusPreviousCheckbox', { bubbles: true }));
+    this.focusCheckbox(-1);
   }
 
   focusNextCheckbox(): void {
-    // Custom event to notify parent to focus the next checkbox
-    this.checkbox.nativeElement.dispatchEvent(new CustomEvent('focusNextCheckbox', { bubbles: true }));
+    this.focusCheckbox(1);
+  }
+
+  private focusCheckbox(offset: number): void {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const currentIndex = Array.prototype.indexOf.call(checkboxes, this.checkbox.nativeElement);
+    const newIndex = (currentIndex + offset + checkboxes.length) % checkboxes.length;
+    const newCheckbox = checkboxes[newIndex] as HTMLElement;
+    newCheckbox.focus();
   }
 }

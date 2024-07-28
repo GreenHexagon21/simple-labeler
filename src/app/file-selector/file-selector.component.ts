@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren, ElementRef } from '@angular/core';
+import { Component, QueryList, ViewChildren, ElementRef, AfterViewInit } from '@angular/core';
 import { groups } from '../res/json/tags.json';
 
 @Component({
@@ -6,12 +6,21 @@ import { groups } from '../res/json/tags.json';
   templateUrl: './file-selector.component.html',
   styleUrls: ['./file-selector.component.scss']
 })
-export class FileSelectorComponent {
+export class FileSelectorComponent implements AfterViewInit {
   images: { name: string, url: string }[] = [];
   currentImageIndex = 0;
   data: any = groups;
+  label: string = '';
+  checkedLabels: Set<string> = new Set();
 
-  @ViewChildren('app-image-checkbox') checkboxes: QueryList<ElementRef>;
+  @ViewChildren('appImageCheckbox') checkboxes: QueryList<any>;
+
+  ngAfterViewInit(): void {
+    this.checkboxes.forEach((checkbox, index) => {
+      checkbox.checkbox.nativeElement.addEventListener('focusPreviousCheckbox', () => this.focusPreviousCheckbox(index));
+      checkbox.checkbox.nativeElement.addEventListener('focusNextCheckbox', () => this.focusNextCheckbox(index));
+    });
+  }
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
@@ -28,9 +37,16 @@ export class FileSelectorComponent {
     });
   }
 
-  imageStep(amount) {
-    console.log(this.data);
+  imageStep(amount: number): void {
     this.currentImageIndex += amount;
+
+    // Uncheck all checkboxes
+    this.uncheckAllCheckboxes();
+
+    // Check if we should download the TXT file when "Next" is clicked
+    if (amount > 0) {
+      this.downloadTextFile();
+    }
   }
 
   findImage(exampleImage: string): string {
@@ -40,15 +56,44 @@ export class FileSelectorComponent {
 
   focusPreviousCheckbox(index: number): void {
     if (index > 0) {
-      const previousCheckbox = this.checkboxes.toArray()[index - 1].nativeElement.querySelector('input');
+      const previousCheckbox = this.checkboxes.toArray()[index - 1].checkbox.nativeElement;
       previousCheckbox.focus();
     }
   }
 
   focusNextCheckbox(index: number): void {
     if (index < this.checkboxes.length - 1) {
-      const nextCheckbox = this.checkboxes.toArray()[index + 1].nativeElement.querySelector('input');
+      const nextCheckbox = this.checkboxes.toArray()[index + 1].checkbox.nativeElement;
       nextCheckbox.focus();
     }
+  }
+
+  onCheckboxChange(label: string): void {
+    if (label) {
+      this.checkedLabels.add(label);
+    } else {
+      this.checkedLabels.delete(label);
+    }
+    this.label = Array.from(this.checkedLabels).join(', ');
+  }
+
+  uncheckAllCheckboxes(): void {
+    this.checkboxes.forEach(checkbox => {
+      checkbox.checked = false; // Uncheck the checkbox
+      checkbox.checkboxChanged.emit(''); // Emit event to update parent component state
+    });
+    this.checkedLabels.clear(); // Clear the checked labels set
+    this.label = ''; // Reset the label
+  }
+
+  downloadTextFile(): void {
+    const textContent = this.label;
+    const blob = new Blob([textContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = this.images[this.currentImageIndex]?.name.slice(0, -4)+'.txt';
+    a.click();
+    URL.revokeObjectURL(url);
   }
 }

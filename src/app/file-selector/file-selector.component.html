@@ -7,16 +7,15 @@
       <input class="image-number" [(ngModel)]="currentImageIndex" type="text">
       <p-button (onClick)="imageStep(-1)" label="Prev"></p-button>
     </div>
+    <textarea [(ngModel)]="label"></textarea>
   </div>
   <div>
     <div *ngIf="images.length > 0">
       <div *ngFor="let group of data">
         <div *ngIf="group.tags">
-          <div *ngFor="let tag of group.tags; let i = index">
-            <app-image-checkbox [image]=" findImage(tag.example)" [checked]="false" [label]="tag.name"
-              (focusPreviousCheckbox)="focusPreviousCheckbox(i)" (focusNextCheckbox)="focusNextCheckbox(i)">
+            <app-image-checkbox *ngFor="let tag of group.tags; let i = index" [image]="findImage(tag.example)"
+              [checked]="false" [label]="tag.name" (checkboxChanged)="onCheckboxChange($event)" tabindex="0">
             </app-image-checkbox>
-          </div>
         </div>
       </div>
     </div>
