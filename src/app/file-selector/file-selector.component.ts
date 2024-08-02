@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, QueryList, ViewChildren, ElementRef, AfterViewInit, HostListener } from '@angular/core';
 import { groups } from '../res/json/tags.json';
 
 @Component({
@@ -6,7 +6,7 @@ import { groups } from '../res/json/tags.json';
   templateUrl: './file-selector.component.html',
   styleUrls: ['./file-selector.component.scss']
 })
-export class FileSelectorComponent implements AfterViewInit {
+export class FileSelectorComponent {
   images: { name: string, url: string }[] = [];
   currentImageIndex = 0;
   data: any = groups;
@@ -14,13 +14,6 @@ export class FileSelectorComponent implements AfterViewInit {
   checkedLabels: Set<string> = new Set();
 
   @ViewChildren('appImageCheckbox') checkboxes: QueryList<any>;
-
-  ngAfterViewInit(): void {
-    this.checkboxes.forEach((checkbox, index) => {
-      checkbox.checkbox.nativeElement.addEventListener('focusPreviousCheckbox', () => this.focusPreviousCheckbox(index));
-      checkbox.checkbox.nativeElement.addEventListener('focusNextCheckbox', () => this.focusNextCheckbox(index));
-    });
-  }
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
@@ -54,25 +47,11 @@ export class FileSelectorComponent implements AfterViewInit {
     return foundImage ? foundImage.url : '';
   }
 
-  focusPreviousCheckbox(index: number): void {
-    if (index > 0) {
-      const previousCheckbox = this.checkboxes.toArray()[index - 1].checkbox.nativeElement;
-      previousCheckbox.focus();
-    }
-  }
-
-  focusNextCheckbox(index: number): void {
-    if (index < this.checkboxes.length - 1) {
-      const nextCheckbox = this.checkboxes.toArray()[index + 1].checkbox.nativeElement;
-      nextCheckbox.focus();
-    }
-  }
-
-  onCheckboxChange(label: string): void {
-    if (label) {
-      this.checkedLabels.add(label);
+  onCheckboxChange(chekboxStatus:any): void {
+    if (chekboxStatus.checked) {
+      this.checkedLabels.add(chekboxStatus.label);
     } else {
-      this.checkedLabels.delete(label);
+      this.checkedLabels.delete(chekboxStatus.label);
     }
     this.label = Array.from(this.checkedLabels).join(', ');
   }
@@ -92,8 +71,22 @@ export class FileSelectorComponent implements AfterViewInit {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = this.images[this.currentImageIndex]?.name.slice(0, -4)+'.txt';
+    a.download = this.images[this.currentImageIndex]?.name.slice(0, -4) + '.txt';
     a.click();
     URL.revokeObjectURL(url);
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeydown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.imageStep(-1);
+        event.preventDefault();
+        break;
+      case 'ArrowRight':
+        this.imageStep(1);
+        event.preventDefault();
+        break;
+    }
   }
 }
