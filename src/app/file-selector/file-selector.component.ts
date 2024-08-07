@@ -58,11 +58,11 @@ export class FileSelectorComponent {
 
   uncheckAllCheckboxes(): void {
     this.checkboxes.forEach(checkbox => {
-      checkbox.checked = false; // Uncheck the checkbox
-      checkbox.checkboxChanged.emit(''); // Emit event to update parent component state
+      checkbox.checked = false; 
+      checkbox.checkboxChanged.emit(''); 
     });
-    this.checkedLabels.clear(); // Clear the checked labels set
-    this.label = ''; // Reset the label
+    this.checkedLabels.clear(); 
+    this.label = ''; 
   }
 
   downloadTextFile(): void {

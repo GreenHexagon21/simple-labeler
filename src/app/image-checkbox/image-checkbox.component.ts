@@ -9,6 +9,7 @@ export class ImageCheckboxComponent {
   @Input() checked: boolean = false;
   @Input() label: string;
   @Input() image: string;
+  @Input() groupLabel: string;
   @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
   @Output() checkboxChanged = new EventEmitter<object>();
 
@@ -40,7 +41,7 @@ export class ImageCheckboxComponent {
   toggleCheckbox(): void {
     this.checked = !this.checked;
     this.checkbox.nativeElement.checked = this.checked; // Ensure the checkbox state is visually updated
-    this.checkboxChanged.emit( {checked: this.checked, label: this.label});
+    this.checkboxChanged.emit( {checked: this.checked, label: this.label,groupLabel: this.groupLabel});
   }
 
   focusPreviousCheckbox(): void {
@@ -48,7 +49,7 @@ export class ImageCheckboxComponent {
   }
 
   focusNextCheckbox(): void {
-    this.focusCheckbox(1);
+    this.focusNextGroup();
   }
 
   focusNextGroup(): void {

@@ -14,7 +14,7 @@
       <div *ngFor="let group of data">
         <div *ngIf="group.tags">
           <app-image-checkbox *ngFor="let tag of group.tags; let i = index" [image]="findImage(tag.example)"
-            [checked]="false" [label]="tag.name" (checkboxChanged)="onCheckboxChange($event)" tabindex="0">
+            [checked]="false" [groupLabel]="" [label]="tag.name" (checkboxChanged)="onCheckboxChange($event)" tabindex="0">
           </app-image-checkbox>
         </div>
       </div>
