@@ -1,630 +1,641 @@
 {
-    "groups": [
+  "baseline": [
+    "penis",
+    "urethral penetration",
+    "urethral insertion"
+  ],
+  "groups": [
+    {
+      "tags": [
         {
-            "tags": [
-                {
-                    "name": "penis",
-                    "example": "sample_d469e3e917b73f7ed0344175e009cb12579488bc_result"
-                },
-                {
-                    "name": "urethral penetration",
-                    "example": "f136dbd67c6210bba9202933265fe03d_result.png"
-                },
-                {
-                    "name": "long nails",
-                    "example": "1640983704.longblueclaw_jen-beads__result.png"
-                },
-                {
-                    "name": "hand on penis",
-                    "example": "1494204401.longblueclaw_daigo-soundplug2__result.png"
-                }
-            ]
+          "name": "penis",
+          "example": "sample_d469e3e917b73f7ed0344175e009cb12579488bc_result"
         },
         {
-            "tags": [
-                {
-                    "name": "lineart",
-                    "example": "1652745788.sanmer_wb_ratchetlombaxeggs_result.png"
-                },
-                {
-                    "name": "sketch",
-                    "example": "1554187574.waffleconecake_sharky_comm_-_sketch_sounding_result.png"
-                },
-                {
-                    "name": "monocolor",
-                    "example": "d746d0f50ec2ff1f306baec9892ce86f_result.png"
-                }
-            ]
+          "name": "urethral penetration",
+          "example": "f136dbd67c6210bba9202933265fe03d_result.png"
         },
         {
-            "tags": [
-                {
-                    "name": "nipples",
-                    "example": "709db7f3487d2b69406f07ae8b117e9f_result.png"
-                },
-                {
-                    "name": "breasts",
-                    "example": "e48614309f508172c54f96c3937de796_result.png"
-                }
-            ]
+          "name": "long nails",
+          "example": "1640983704.longblueclaw_jen-beads__result.png"
         },
         {
-            "tags": [
-                {
-                    "name": "pubes",
-                    "example": "52dd9dab6786dbb41468ef4c99b3f213_result.png"
-                },
-                {
-                    "name": "pussy",
-                    "example": "example"
-                },
-                {
-                    "name": "herm",
-                    "example": "example"
-                },
-                {
-                    "name": "slit",
-                    "example": "example"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "belly bulge",
-                    "example": "Copy of 1589314890.qwaxi~lixard_seedy-hookah-10_result.png"
-                },
-                {
-                    "name": "bladder bulge",
-                    "example": "6f493df64756b97d9e711bf8873b24bf_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "thick penis",
-                    "example": "1702967410.danjiuarts_1111_result.png"
-                },
-                {
-                    "name": "long penis",
-                    "example": "d5ee112eb72dd6089eb1419a08cb713c_result.png"
-                },
-                {
-                    "name": "short penis",
-                    "example": "bed368c233c32dc22b96738f42a0d2a1_result.png"
-                },
-                {
-                    "name": "big penis",
-                    "example": "defddfd3da0655efca728ac3b94690ce_result.png"
-                },
-                {
-                    "name": "cute penis",
-                    "example": "1699025438.dragondi_clean_version_result.png"
-                },
-                {
-                    "name": "hyper penis",
-                    "example": "1699216000.indynd_patreonkal-small_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "humanoid penis",
-                    "example": "sample_e3639d2d36daca33c018c54b46cafee5_result.png"
-                },
-                {
-                    "name": "equine penis",
-                    "example": "1703202458.slimefur_megadbxegg2_result.png"
-                },
-                {
-                    "name": "canine penis",
-                    "example": "1703517968.blyadykonch_44554454_result.png"
-                },
-                {
-                    "name": "tapering penis",
-                    "example": "519dc3fbacf1d868ce6f43615558016b_result.png"
-                },
-                {
-                    "name": "hybrid penis",
-                    "example": "1703372578.mikey6193_mikey_rpg_tentacles_result.png"
-                },
-                {
-                    "name": "ridged penis",
-                    "example": "719f7b477b0da64e0ddf28ef9433e383_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "knot",
-                    "example": "90d6e6d505b73770fb72d03bb951bc57_result.png"
-                },
-                {
-                    "name": "flared penis",
-                    "example": "a2ac9df260b62e88cab2419b4239b2ee_result.png"
-                },
-                {
-                    "name": "barbed penis",
-                    "example": "6dd99bfece1f9f25d4f7c1ac7f9ed972_result.png"
-                },
-                {
-                    "name": "barbed penis head",
-                    "example": "4da4bcbccbe3248ff807df4f904ae9b1_result.png"
-                },
-                {
-                    "name": "foreskin",
-                    "example": "3ad60593ccfd48c3fda9daa040f78a03_result.png"
-                },
-                {
-                    "name": "thick foreskin",
-                    "example": "0c1bd2e065aae8c1103d23c4c55d8e75_result.png"
-                },
-                {
-                    "name": "partially retracted foreskin",
-                    "example": "3a2379fe56ab723bb3481172fae292b2_result.png"
-                }
-            ]
-        },
-
-        {
-            "tags": [
-                {
-                    "name": "skin colored penis",
-                    "example": "8e5376f966fb81182d623dee7bdfecd7_result.png"
-                },
-                {
-                    "name": "glowing penis",
-                    "example": "1690463594.madkuzya_kuzya_butt_1_2_small_result.png"
-                },
-                {
-                    "name": "markings on penis",
-                    "example": "1715472554.frostybright_eviolite_trade_e_result.png"
-                },
-                {
-                    "name": "penis shine",
-                    "example": "1706134172.longblueclaw_boony_strapon_cockfuck__result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "action spikes",
-                    "example": "1686000658.glopossum_willowhyperbeads_result.png"
-                },
-                {
-                    "name": "action lines",
-                    "example": "1619088828.hyflin_306cbond73_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "piercing",
-                    "example": "1589460084.psychoseby_april_tier_4_substar_reward_result.png"
-                },
-                {
-                    "name": "1512521759.snowypenguin_snowypenguin_1_result.png",
-                    "example": "example"
-                },
-                {
-                    "name": "nipple piercing",
-                    "example": "7046f3613fc128cef9f373dd24939b96_result.png"
-                },
-                {
-                    "name": "multiple piercings",
-                    "example": "7341f7b922fbd7245102a6b8324e6b95_result.png"
-                },
-                {
-                    "name": "piercing row",
-                    "example": "1617043020.gimmemysmokes_hyperfb1280_result.png"
-                },
-                {
-                    "name": "ring piercing",
-                    "example": "1617141578.ohelladarian_sid-21-1-final_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "scrotum strap",
-                    "example": "1625658862.hikusdevils_шшшш_result.png"
-                },
-                {
-                    "name": "scrotum ring",
-                    "example": "a3ed11a429742499bbe0d3d587da5275_result.png"
-                },
-                {
-                    "name": "penis ring",
-                    "example": "f15c7458fc1a2bca07cca25a0c31b0a6_result.png"
-                },
-                {
-                    "name": "penis strap",
-                    "example": "1650913402.uxdragon_lysupgrade03_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "veiny penis",
-                    "example": "1616799989.slug_arthas972_eggs_result.png"
-                },
-                {
-                    "name": "very veiny penis",
-                    "example": "42c9450486281e398f93d770eb0aabad_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "solo",
-                    "example": "example"
-                },
-                {
-                    "name": "duo",
-                    "example": "example"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "taint",
-                    "example": "1587312256.golliourus_sunlight_result.png"
-                },
-                {
-                    "name": "taint bulge",
-                    "example": "example"
-                }
-            ]
-        },
-        {
-            "defaultTag": "scrotum",
-            "subgroup": [
-                {
-                    "tags": [
-                        {
-                            "name": "small scrotum",
-                            "example": "40db652f13f43701488ad876f6346de3_result.png"
-                        },
-                        {
-                            "name": "medium scrotum",
-                            "example": "974b35364c97c9f7d749b89c322933d3_result.png"
-                        },
-                        {
-                            "name": "big scrotum",
-                            "example": "26b96a86e4ff0243451caeb3e714306d_result.png"
-                        },
-                        {
-                            "name": "huge scrotum",
-                            "example": "8d3d5752c44540750bff174a0ab6b051_result.png"
-                        }
-                    ]
-                },
-                {
-                    "tags": [
-                        {
-                            "name": "saggy scrotum",
-                            "example": "60f51737f4a1f08d4ade65431e802f1d_result.png"
-                        },
-                        {
-                            "name": "tight scrotum",
-                            "example": "44e69c4c04fb80ce9f1c6ad6cd7cf4c1_result.png"
-                        },
-                        {
-                            "name": "scrotum bulges",
-                            "example": "frame_05_delay-0.09s_result.png"
-                        }
-                    ]
-                },
-                {
-                    "tags": [
-                        {
-                            "name": "stretched scrotum",
-                            "example": "1643579307.hyflin_375voidv1_result.png"
-                        },
-                        {
-                            "name": "very stretched scrotum",
-                            "example": "b722611f6d58eb5cd61afeff4e90e5e3_result.png"
-                        },
-                        {
-                            "name": "extermely stretched scrotum",
-                            "example": "37525b39922e1ba51364df61cba6bb13_result.png"
-                        }
-                    ]
-                },
-                {
-                    "tags": [
-                        {
-                            "name": "testicle torture",
-                            "example": "06d90431552d179c3c5da55beb3ddaff_result.png"
-                        },
-                        {
-                            "name": "bruised scrotum",
-                            "example": "636c0ba49f8ff1a8a7508e51d0a4e3cc_result.png"
-                        },
-                        {
-                            "name": "writing on scrotum",
-                            "example": "8ecf922d456e69ad8dc480b48ff607a9_result.png"
-                        },
-                        {
-                            "name": "scrotum weights",
-                            "example": "805faa295fc49ea3767e033292114895_result.png"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "cum dripping from penis",
-                    "example": "69923c4d73e09f7248d7aa44f9fb5599_result.png"
-                },
-                {
-                    "name": "precum dripping from penis",
-                    "example": "475498e771f4c8938fb20e08de336484_result.png"
-                },
-                {
-                    "name": "excessive precum",
-                    "example": "4354820e3bf45ddb1a61846322085370_result.png"
-                },
-                {
-                    "name": "excessive cum",
-                    "example": "1061922_ares165_old_trans_piece_2_-_copy_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "tentacles",
-                    "example": "993493_result.png"
-                },
-                {
-                    "name": "egg",
-                    "example": "0600b830ecdfaaa2b43365f26431eb70_result.png"
-                },
-                {
-                    "name": "tentacles around penis",
-                    "example": "1543342584.wrinklynewt_5lhiczi_result.png"
-                },
-                {
-                    "name": "penile urethral tentacle oviposition",
-                    "example": "1544012_result.png"
-                },
-                {
-                    "name": "penile urethral egg oviposition",
-                    "example": "1531938381.teratophilia_vhjghj_result.png"
-                },
-                {
-                    "name": "tentacles coimng from penile urethra",
-                    "example": "3b202f02ae46efbecfc07de28186bdfc_result.png"
-                }
-            ]
-        },
-        {
-            "defaultTag": "gaping penile urethra",
-            "tags": [
-                {
-                    "name": "slightly gaping penile urethra",
-                    "example": "49b749d8ae43fe630d1d372d7160f590_result.png"
-                },
-                {
-                    "name": "moderately gaping penile urethra",
-                    "example": "9eb6fc7b8f14fbf85496322513f4aaae_result.png"
-                },
-                {
-                    "name": "very gaping penile urethra",
-                    "example": "26b96a86e4ff0243451caeb3e714306d_result.png"
-                },
-                {
-                    "name": "extremely gaping penile urethra",
-                    "example": "1703202458.slimefur_megadbxegg2_result.png"
-                },
-                {
-                    "name": "actively gaped urethra",
-                    "example": "bfd83cd4e11e51a95d7d3fe7962b195c_result.png"
-                }
-            ]
-        },
-        {
-            "defaultTag": "stretched penile urethra ",
-            "tags": [
-                {
-                    "name": "slightly stretched penile urethra",
-                    "example": "b0cbe11887a33041c587538d3846a832_result.png"
-                },
-                {
-                    "name": "moderately stretched penile urethra",
-                    "example": "b1ef62ae1449133986d99fbd7d023c21_result.png"
-                },
-                {
-                    "name": "very stretched penile urethra",
-                    "example": "bc888aec970e0df8462b6122fb6c747e_result.png"
-                },
-                {
-                    "name": "extremely stretched penile urethra",
-                    "example": "bed368c233c32dc22b96738f42a0d2a1_result.png"
-                },
-                {
-                    "name": "penile urethral stretch lip",
-                    "example": "1673422317.bnue_bunekurt2-2_result.png"
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "multiple urethral insertions",
-                    "example": "3653916_Trooper036_july_2021_ych_1_paradoxicalotter_result.png"
-                },
-                {
-                    "name": "dildo in penile urethra",
-                    "example": "5c7c0e52bf3c1a82416230edcbb9c5b3_result.png"
-                },
-                {
-                    "name": "penis in penile urethra",
-                    "example": "87ac0d7888246c080c239281303a148b_result.png"
-                },
-                {
-                    "name": "tentacle in penile urethra",
-                    "example": "4c6fd9e7d6d596a47f58af7f32935019_result.png"
-                },
-                {
-                    "name": "candy cane in penile urethra",
-                    "example": "1310295_result.png"
-                },
-                {
-                    "name": "beads in penile urethra",
-                    "example": "1622404a97b90e28e226c7b6785bae4e_result.png"
-                },
-                {
-                    "name": "plugged penile urethra",
-                    "example": "1497136470.glopossum_1394936124.aixarata_little2done_result.png"
-                },
-                {
-                    "name": "fully inserted penile urethral toy",
-                    "example": "1650913402.uxdragon_lysupgrade03_result.png"
-                }
-            ]
-        },
-        {
-            "defaultTag": "urethral bulge",
-            "subgroup": [
-                {
-                    "tags": [
-                        {
-                            "name": "single urethral bulge",
-                            "example": "1612233714.dunstanmarshall_20210201_115627_result.png"
-                        },
-                        {
-                            "name": "multiple urethral bulges",
-                            "example": "1650338216.dunstanmarshall_buttquickie3zenv2_result.png"
-                        },
-                        {
-                            "name": "multiple paralel urethral bulges",
-                            "example": "1702967410.danjiuarts_1111_result.png"
-                        }
-                    ]
-                },
-                {
-                    "tags": [
-                        {
-                            "name": "circular urethral bulge",
-                            "example": "1601293324.fozzey_9aa80bed-4141-4c0d-9e75-46e063644900_result.png"
-                        },
-                        {
-                            "name": "oval urethral bulge",
-                            "example": "example"
-                        },
-                        {
-                            "name": "cylinder urethral bulge ",
-                            "example": "a4a9bdbba02a43ffb871e50fa4da1b62_result.png"
-                        },
-                        {
-                            "name": "penis shaped urethral bulge",
-                            "example": "783a408cbcb1272e274b79751ed7a279_result.png"
-                        },
-                        {
-                            "name": "urethral bulge nubs",
-                            "example": "1625658862.hikusdevils_шшшш_result.png"
-                        }
-                    ]
-                },
-                {
-                    "tags": [
-                        {
-                            "name": "slight urethral bulge",
-                            "example": "e04e94c254dd714c835c39ac81a4b6cf_result.png"
-                        },
-                        {
-                            "name": "moderate urethral bulge",
-                            "example": "sample_25bf3360334e62d56a25e14006276dec1c21e893_result.png"
-                        },
-                        {
-                            "name": "large urethral bulge",
-                            "example": "Copy of 794ce43606a72c1bf2b65f495f2b07df_result.png"
-                        },
-                        {
-                            "name": "extreme urethral bulge",
-                            "example": "frame_18_delay-0.07s_result.png"
-                        }
-                    ]
-                },
-                {
-                    "tags": [
-                        {
-                            "name": "tip bulged urethra",
-                            "example": "Copy of 1553046315.grimlocxxx_reminiscing_on_the_beach_pt._2_result.png"
-                        },
-                        {
-                            "name": "middle urethral bulge",
-                            "example": "example"
-                        },
-                        {
-                            "name": "base urethral bulge",
-                            "example": "example"
-                        },
-                        {
-                            "name": "half bulged urethra",
-                            "example": "a8ac8df5dbe812b191cad4856edc0be5_result.png"
-                        },
-                        {
-                            "name": "almost fully bulged urethra",
-                            "example": "1652818731.dragondi_exploring_fun_result.png"
-                        },
-                        {
-                            "name": "fully bulged urethra",
-                            "example": "Copy of 5a582be3d93675683c19cd266ee27ba3_result.png"
-                        },
-                        {
-                            "name": "fully bulged urethra with beads",
-                            "example": "Copy of 5a582be3d93675683c19cd266ee27ba3_result.png"
-                        }
-                    ]
-                },
-                {
-                    "tags": [
-                        {
-                            "name": "urethral bulge stretch color change",
-                            "example": "b722611f6d58eb5cd61afeff4e90e5e3_result.png"
-                        },
-                        {
-                            "name": "glowing urethral bulge",
-                            "example": "ec8bbff6580e40dc4a2b8ee3ec1c06d8_result.png"
-                        }
-
-                    ]
-                }
-            ]
-        },
-        {
-            "tags": [
-                {
-                    "name": "urethral sextoy ring",
-                    "example": "1715718614.lumarten_servicetop_lr_result.png"
-                },
-                {
-                    "name": "urethral beads hanging out of penis",
-                    "example": "d81d3db06ce6a14015a76d6340accd77_result.png"
-                },
-                {
-                    "name": "fully inserted urethral beads",
-                    "example": "bb75fd55d3d6e71d93e023c40c96462c_result.png"
-                },
-                {
-                    "name": "vibe-egg on penis",
-                    "example": "2861fb619f2a2e6bd07f30856d9fa407_result.png"
-                }
-            ]
+          "name": "hand on penis",
+          "example": "1494204401.longblueclaw_daigo-soundplug2__result.png"
         }
-    ]
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "lineart",
+          "example": "1652745788.sanmer_wb_ratchetlombaxeggs_result.png"
+        },
+        {
+          "name": "sketch",
+          "example": "1554187574.waffleconecake_sharky_comm_-_sketch_sounding_result.png"
+        },
+        {
+          "name": "monocolor",
+          "example": "d746d0f50ec2ff1f306baec9892ce86f_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "nipples",
+          "example": "709db7f3487d2b69406f07ae8b117e9f_result.png"
+        },
+        {
+          "name": "breasts",
+          "example": "e48614309f508172c54f96c3937de796_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "pubes",
+          "example": "52dd9dab6786dbb41468ef4c99b3f213_result.png"
+        },
+        {
+          "name": "pussy",
+          "example": "example"
+        },
+        {
+          "name": "herm",
+          "example": "example"
+        },
+        {
+          "name": "slit",
+          "example": "example"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "belly bulge",
+          "example": "Copy of 1589314890.qwaxi~lixard_seedy-hookah-10_result.png"
+        },
+        {
+          "name": "bladder bulge",
+          "example": "6f493df64756b97d9e711bf8873b24bf_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "thick penis",
+          "example": "1702967410.danjiuarts_1111_result.png"
+        },
+        {
+          "name": "long penis",
+          "example": "d5ee112eb72dd6089eb1419a08cb713c_result.png"
+        },
+        {
+          "name": "short penis",
+          "example": "bed368c233c32dc22b96738f42a0d2a1_result.png"
+        },
+        {
+          "name": "big penis",
+          "example": "defddfd3da0655efca728ac3b94690ce_result.png"
+        },
+        {
+          "name": "cute penis",
+          "example": "1699025438.dragondi_clean_version_result.png"
+        },
+        {
+          "name": "hyper penis",
+          "example": "1699216000.indynd_patreonkal-small_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "humanoid penis",
+          "example": "sample_e3639d2d36daca33c018c54b46cafee5_result.png"
+        },
+        {
+          "name": "equine penis",
+          "example": "1703202458.slimefur_megadbxegg2_result.png"
+        },
+        {
+          "name": "canine penis",
+          "example": "1703517968.blyadykonch_44554454_result.png"
+        },
+        {
+          "name": "tapering penis",
+          "example": "519dc3fbacf1d868ce6f43615558016b_result.png"
+        },
+        {
+          "name": "hybrid penis",
+          "example": "1703372578.mikey6193_mikey_rpg_tentacles_result.png"
+        },
+        {
+          "name": "ridged penis",
+          "example": "719f7b477b0da64e0ddf28ef9433e383_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "knot",
+          "example": "90d6e6d505b73770fb72d03bb951bc57_result.png"
+        },
+        {
+          "name": "flared penis",
+          "example": "a2ac9df260b62e88cab2419b4239b2ee_result.png"
+        },
+        {
+          "name": "barbed penis",
+          "example": "6dd99bfece1f9f25d4f7c1ac7f9ed972_result.png"
+        },
+        {
+          "name": "barbed penis head",
+          "example": "4da4bcbccbe3248ff807df4f904ae9b1_result.png"
+        },
+        {
+          "name": "foreskin",
+          "example": "3ad60593ccfd48c3fda9daa040f78a03_result.png"
+        },
+        {
+          "name": "thick foreskin",
+          "example": "0c1bd2e065aae8c1103d23c4c55d8e75_result.png"
+        },
+        {
+          "name": "partially retracted foreskin",
+          "example": "3a2379fe56ab723bb3481172fae292b2_result.png"
+        }
+      ]
+    },
+
+    {
+      "tags": [
+        {
+          "name": "skin colored penis",
+          "example": "8e5376f966fb81182d623dee7bdfecd7_result.png"
+        },
+        {
+          "name": "glowing penis",
+          "example": "1690463594.madkuzya_kuzya_butt_1_2_small_result.png"
+        },
+        {
+          "name": "markings on penis",
+          "example": "1715472554.frostybright_eviolite_trade_e_result.png"
+        },
+        {
+          "name": "penis shine",
+          "example": "1706134172.longblueclaw_boony_strapon_cockfuck__result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "action spikes",
+          "example": "1686000658.glopossum_willowhyperbeads_result.png"
+        },
+        {
+          "name": "action lines",
+          "example": "1619088828.hyflin_306cbond73_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "piercing",
+          "example": "1589460084.psychoseby_april_tier_4_substar_reward_result.png"
+        },
+        {
+          "name": "penis piercing",
+          "example": "1512521759.snowypenguin_snowypenguin_1_result.png"
+        },
+        {
+          "name": "nipple piercing",
+          "example": "7046f3613fc128cef9f373dd24939b96_result.png"
+        },
+        {
+          "name": "multiple piercings",
+          "example": "7341f7b922fbd7245102a6b8324e6b95_result.png"
+        },
+        {
+          "name": "piercing row",
+          "example": "1617043020.gimmemysmokes_hyperfb1280_result.png"
+        },
+        {
+          "name": "ring piercing",
+          "example": "1617141578.ohelladarian_sid-21-1-final_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "scrotum strap",
+          "example": "1625658862.hikusdevils_шшшш_result.png"
+        },
+        {
+          "name": "scrotum ring",
+          "example": "a3ed11a429742499bbe0d3d587da5275_result.png"
+        },
+        {
+          "name": "penis ring",
+          "example": "f15c7458fc1a2bca07cca25a0c31b0a6_result.png"
+        },
+        {
+          "name": "penis strap",
+          "example": "1650913402.uxdragon_lysupgrade03_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "veiny penis",
+          "example": "1616799989.slug_arthas972_eggs_result.png"
+        },
+        {
+          "name": "very veiny penis",
+          "example": "42c9450486281e398f93d770eb0aabad_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "solo",
+          "example": "example"
+        },
+        {
+          "name": "duo",
+          "example": "example"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "taint",
+          "example": "1587312256.golliourus_sunlight_result.png"
+        },
+        {
+          "name": "taint bulge",
+          "example": "example"
+        }
+      ]
+    },
+    {
+      "defaultTag": "scrotum",
+      "tags": [
+        {
+          "name": "small scrotum",
+          "example": "40db652f13f43701488ad876f6346de3_result.png"
+        },
+        {
+          "name": "medium scrotum",
+          "example": "974b35364c97c9f7d749b89c322933d3_result.png"
+        },
+        {
+          "name": "big scrotum",
+          "example": "26b96a86e4ff0243451caeb3e714306d_result.png"
+        },
+        {
+          "name": "huge scrotum",
+          "example": "8d3d5752c44540750bff174a0ab6b051_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "scrotum",
+      "tags": [
+        {
+          "name": "saggy scrotum",
+          "example": "60f51737f4a1f08d4ade65431e802f1d_result.png"
+        },
+        {
+          "name": "tight scrotum",
+          "example": "44e69c4c04fb80ce9f1c6ad6cd7cf4c1_result.png"
+        },
+        {
+          "name": "scrotum bulges",
+          "example": "frame_05_delay-0.09s_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "scrotum",
+      "tags": [
+        {
+          "name": "stretched scrotum",
+          "example": "1643579307.hyflin_375voidv1_result.png"
+        },
+        {
+          "name": "very stretched scrotum",
+          "example": "b722611f6d58eb5cd61afeff4e90e5e3_result.png"
+        },
+        {
+          "name": "extermely stretched scrotum",
+          "example": "37525b39922e1ba51364df61cba6bb13_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "scrotum",
+      "tags": [
+        {
+          "name": "testicle torture",
+          "example": "06d90431552d179c3c5da55beb3ddaff_result.png"
+        },
+        {
+          "name": "bruised scrotum",
+          "example": "636c0ba49f8ff1a8a7508e51d0a4e3cc_result.png"
+        },
+        {
+          "name": "writing on scrotum",
+          "example": "8ecf922d456e69ad8dc480b48ff607a9_result.png"
+        },
+        {
+          "name": "scrotum weights",
+          "example": "805faa295fc49ea3767e033292114895_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "cum dripping from penis",
+          "example": "69923c4d73e09f7248d7aa44f9fb5599_result.png"
+        },
+        {
+          "name": "precum dripping from penis",
+          "example": "475498e771f4c8938fb20e08de336484_result.png"
+        },
+        {
+          "name": "excessive precum",
+          "example": "4354820e3bf45ddb1a61846322085370_result.png"
+        },
+        {
+          "name": "excessive cum",
+          "example": "1061922_ares165_old_trans_piece_2_-_copy_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "tentacles",
+          "example": "993493_result.png"
+        },
+        {
+          "name": "egg",
+          "example": "0600b830ecdfaaa2b43365f26431eb70_result.png"
+        },
+        {
+          "name": "tentacles around penis",
+          "example": "1543342584.wrinklynewt_5lhiczi_result.png"
+        },
+        {
+          "name": "penile urethral tentacle oviposition",
+          "example": "1544012_result.png"
+        },
+        {
+          "name": "penile urethral egg oviposition",
+          "example": "1531938381.teratophilia_vhjghj_result.png"
+        },
+        {
+          "name": "tentacles coming from penis",
+          "example": "3b202f02ae46efbecfc07de28186bdfc_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "gaping penile urethra",
+      "tags": [
+        {
+          "name": "slightly gaping penile urethra",
+          "example": "49b749d8ae43fe630d1d372d7160f590_result.png"
+        },
+        {
+          "name": "moderately gaping penile urethra",
+          "example": "9eb6fc7b8f14fbf85496322513f4aaae_result.png"
+        },
+        {
+          "name": "very gaping penile urethra",
+          "example": "26b96a86e4ff0243451caeb3e714306d_result.png"
+        },
+        {
+          "name": "extremely gaping penile urethra",
+          "example": "1703202458.slimefur_megadbxegg2_result.png"
+        },
+        {
+          "name": "actively gaped penile urethra",
+          "example": "bfd83cd4e11e51a95d7d3fe7962b195c_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "stretched penile urethra ",
+      "tags": [
+        {
+          "name": "slightly stretched penile urethra",
+          "example": "b0cbe11887a33041c587538d3846a832_result.png"
+        },
+        {
+          "name": "moderately stretched penile urethra",
+          "example": "b1ef62ae1449133986d99fbd7d023c21_result.png"
+        },
+        {
+          "name": "very stretched penile urethra",
+          "example": "bc888aec970e0df8462b6122fb6c747e_result.png"
+        },
+        {
+          "name": "extremely stretched penile urethra",
+          "example": "bed368c233c32dc22b96738f42a0d2a1_result.png"
+        },
+        {
+          "name": "penile urethral stretch lip",
+          "example": "1673422317.bnue_bunekurt2-2_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "single urethral insertion",
+          "example": "3653916_Trooper036_july_2021_ych_1_paradoxicalotter_result.png"
+        },
+        {
+          "name": "multiple urethral insertions",
+          "example": "3653916_Trooper036_july_2021_ych_1_paradoxicalotter_result.png"
+        },
+        {
+          "name": "object in penis",
+          "example": "5c7c0e52bf3c1a82416230edcbb9c5b3_result.png"
+        },
+        {
+          "name": "dildo in penis",
+          "example": "5c7c0e52bf3c1a82416230edcbb9c5b3_result.png"
+        },
+        {
+          "name": "penis in penis",
+          "example": "87ac0d7888246c080c239281303a148b_result.png"
+        },
+        {
+          "name": "tentacle in penis",
+          "example": "4c6fd9e7d6d596a47f58af7f32935019_result.png"
+        },
+        {
+          "name": "candy cane in penis",
+          "example": "1310295_result.png"
+        },
+        {
+          "name": "urethral beads in penis",
+          "example": "1622404a97b90e28e226c7b6785bae4e_result.png"
+        },
+        {
+          "name": "plugged penis",
+          "example": "1497136470.glopossum_1394936124.aixarata_little2done_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "urethral bulge",
+      "tags": [
+        {
+          "name": "single urethral bulge",
+          "example": "1612233714.dunstanmarshall_20210201_115627_result.png"
+        },
+        {
+          "name": "multiple urethral bulges",
+          "example": "1650338216.dunstanmarshall_buttquickie3zenv2_result.png"
+        },
+        {
+          "name": "multiple paralel urethral bulges",
+          "example": "1702967410.danjiuarts_1111_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "urethral bulge",
+      "tags": [
+        {
+          "name": "circular urethral bulge",
+          "example": "1601293324.fozzey_9aa80bed-4141-4c0d-9e75-46e063644900_result.png"
+        },
+        {
+          "name": "oval urethral bulge",
+          "example": "example"
+        },
+        {
+          "name": "cylinder urethral bulge ",
+          "example": "a4a9bdbba02a43ffb871e50fa4da1b62_result.png"
+        },
+        {
+          "name": "penis shaped urethral bulge",
+          "example": "783a408cbcb1272e274b79751ed7a279_result.png"
+        },
+        {
+          "name": "urethral bulge nubs",
+          "example": "1625658862.hikusdevils_шшшш_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "urethral bulge",
+      "tags": [
+        {
+          "name": "slight urethral bulge",
+          "example": "e04e94c254dd714c835c39ac81a4b6cf_result.png"
+        },
+        {
+          "name": "moderate urethral bulge",
+          "example": "sample_25bf3360334e62d56a25e14006276dec1c21e893_result.png"
+        },
+        {
+          "name": "large urethral bulge",
+          "example": "Copy of 794ce43606a72c1bf2b65f495f2b07df_result.png"
+        },
+        {
+          "name": "extreme urethral bulge",
+          "example": "frame_18_delay-0.07s_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "urethral bulge",
+      "tags": [
+        {
+          "name": "tip bulged urethra",
+          "example": "Copy of 1553046315.grimlocxxx_reminiscing_on_the_beach_pt._2_result.png"
+        },
+        {
+          "name": "middle urethral bulge",
+          "example": "example"
+        },
+        {
+          "name": "base urethral bulge",
+          "example": "example"
+        },
+        {
+          "name": "half bulged urethra",
+          "example": "a8ac8df5dbe812b191cad4856edc0be5_result.png"
+        },
+        {
+          "name": "almost fully bulged urethra",
+          "example": "1652818731.dragondi_exploring_fun_result.png"
+        },
+        {
+          "name": "fully bulged urethra",
+          "example": "Copy of 5a582be3d93675683c19cd266ee27ba3_result.png"
+        },
+        {
+          "name": "fully bulged urethra with beads",
+          "example": "1608657307.longblueclaw_laika_1b__result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "urethral bulge",
+      "tags": [
+        {
+          "name": "urethral bulge stretch color change",
+          "example": "b722611f6d58eb5cd61afeff4e90e5e3_result.png"
+        },
+        {
+          "name": "glowing urethral bulge",
+          "example": "ec8bbff6580e40dc4a2b8ee3ec1c06d8_result.png"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "urethral sextoy ring",
+          "example": "1715718614.lumarten_servicetop_lr_result.png"
+        },
+        {
+          "name": "urethral beads hanging out of penis",
+          "example": "d81d3db06ce6a14015a76d6340accd77_result.png"
+        },
+        {
+          "name": "fully inserted urethral beads",
+          "example": "bb75fd55d3d6e71d93e023c40c96462c_result.png"
+        },
+        {
+          "name": "fully inserted sextoy in penis",
+          "example": "1650913402.uxdragon_lysupgrade03_result.png"
+        },
+        {
+          "name": "vibe-egg on penis",
+          "example": "2861fb619f2a2e6bd07f30856d9fa407_result.png"
+        }
+      ]
+    }
+  ]
 }

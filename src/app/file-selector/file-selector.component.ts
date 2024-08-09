@@ -49,7 +49,8 @@ export class FileSelectorComponent {
 
   onCheckboxChange(chekboxStatus:any): void {
     if (chekboxStatus.checked) {
-      this.checkedLabels.add(chekboxStatus.label);
+      this.checkedLabels.add(chekboxStatus.label)
+      this.checkedLabels.add(chekboxStatus?.groupLabel);
     } else {
       this.checkedLabels.delete(chekboxStatus.label);
     }
