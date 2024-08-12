@@ -12,8 +12,9 @@ export class FileSelectorComponent {
   data: any = groups;
   label: string = '';
   checkedLabels: Set<string> = new Set();
+  @ViewChildren('checkbox') checkboxes!: QueryList<ElementRef>;
 
-  @ViewChildren('appImageCheckbox') checkboxes: QueryList<any>;
+  @ViewChildren('appImageCheckbox') checkboxesOld: QueryList<any>;
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
@@ -58,7 +59,7 @@ export class FileSelectorComponent {
   }
 
   uncheckAllCheckboxes(): void {
-    this.checkboxes.forEach(checkbox => {
+    this.checkboxesOld.forEach(checkbox => {
       checkbox.checked = false; 
       checkbox.checkboxChanged.emit(''); 
     });

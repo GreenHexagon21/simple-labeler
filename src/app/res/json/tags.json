@@ -1,20 +1,10 @@
 {
   "baseline": [
-    "penis",
-    "urethral penetration",
-    "urethral insertion"
+    "penis"
   ],
   "groups": [
     {
       "tags": [
-        {
-          "name": "penis",
-          "example": "sample_d469e3e917b73f7ed0344175e009cb12579488bc_result"
-        },
-        {
-          "name": "urethral penetration",
-          "example": "f136dbd67c6210bba9202933265fe03d_result.png"
-        },
         {
           "name": "long nails",
           "example": "1640983704.longblueclaw_jen-beads__result.png"
@@ -278,6 +268,7 @@
         }
       ]
     },
+    
     {
       "tags": [
         {
@@ -287,6 +278,14 @@
         {
           "name": "taint bulge",
           "example": "example"
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "vibe-egg on penis",
+          "example": "2861fb619f2a2e6bd07f30856d9fa407_result.png"
         }
       ]
     },
@@ -401,11 +400,28 @@
           "example": "1543342584.wrinklynewt_5lhiczi_result.png"
         },
         {
-          "name": "penile urethral tentacle oviposition",
+          "name": "penis oviposited into",
           "example": "1544012_result.png"
         },
         {
-          "name": "penile urethral egg oviposition",
+          "name": "penile egg",
+          "example": "1531938381.teratophilia_vhjghj_result.png"
+        },
+        {
+          "name": "tentacles coming from penis",
+          "example": "3b202f02ae46efbecfc07de28186bdfc_result.png"
+        }
+      ]
+    },
+    {
+      "defaultTag": "penile urethral penetration,penile urethral insertion",
+      "tags": [
+        {
+          "name": "penis oviposited into",
+          "example": "1544012_result.png"
+        },
+        {
+          "name": "penile egg oviposition",
           "example": "1531938381.teratophilia_vhjghj_result.png"
         },
         {
@@ -440,7 +456,7 @@
       ]
     },
     {
-      "defaultTag": "stretched penile urethra ",
+      "defaultTag": "stretched penile urethra, penile urethral penetration, penile urethral insertion",
       "tags": [
         {
           "name": "slightly stretched penile urethra",
@@ -465,6 +481,7 @@
       ]
     },
     {
+      "defaultTag": "penile urethral penetration,penile urethral insertion",
       "tags": [
         {
           "name": "single urethral insertion",
@@ -614,6 +631,7 @@
       ]
     },
     {
+      "defaultTag": "penile urethral penetration,penile urethral insertion",
       "tags": [
         {
           "name": "urethral sextoy ring",
@@ -630,10 +648,6 @@
         {
           "name": "fully inserted sextoy in penis",
           "example": "1650913402.uxdragon_lysupgrade03_result.png"
-        },
-        {
-          "name": "vibe-egg on penis",
-          "example": "2861fb619f2a2e6bd07f30856d9fa407_result.png"
         }
       ]
     }

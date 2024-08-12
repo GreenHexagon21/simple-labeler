@@ -15,9 +15,8 @@ export class ImageCheckboxComponent {
 
   @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
-    event.stopPropagation();  // Add this line
+    event.stopPropagation();  
     if (event.shiftKey && event.key === 'ArrowDown') {
-      this.focusNextGroup();
       event.preventDefault();
     } else {
       switch (event.key) {
@@ -49,20 +48,7 @@ export class ImageCheckboxComponent {
   }
 
   focusNextCheckbox(): void {
-    this.focusNextGroup();
-  }
-
-  focusNextGroup(): void {
-    const currentGroup = this.checkbox.nativeElement.closest('.checkbox-group');
-    const allGroups = Array.from(document.querySelectorAll('.checkbox-group'));
-    const currentIndex = allGroups.indexOf(currentGroup);
-    const nextGroup = allGroups[currentIndex + 1];
-    if (nextGroup) {
-      const nextCheckbox = nextGroup.querySelector('input[type="checkbox"]') as HTMLElement;
-      if (nextCheckbox) {
-        nextCheckbox.focus();
-      }
-    }
+    this.focusCheckbox(1);
   }
 
   private focusCheckbox(offset: number): void {
