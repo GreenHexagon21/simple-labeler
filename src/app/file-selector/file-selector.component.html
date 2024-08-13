@@ -11,10 +11,17 @@
   </div>
   <div>
     <div *ngIf="images.length > 0">
-      <div *ngFor="let group of data">
+      <div #group *ngFor="let group of data; let groupIndex = index">
         <div *ngIf="group.tags">
-          <app-image-checkbox #checkbox *ngFor="let tag of group.tags; let i = index" [id]="i" [image]="findImage(tag.example)"
-            [checked]="false" [groupLabel]="group.defaultTag" [label]="tag.name" (checkboxChanged)="onCheckboxChange($event)" tabindex="0">
+          <app-image-checkbox
+            *ngFor="let tag of group.tags; let tagIndex = index"
+            [id]="'checkbox-' + groupIndex + '-' + tagIndex" 
+            [image]="findImage(tag.example)"
+            [checked]="false"
+            [groupLabel]="group.defaultTag"
+            [label]="tag.name"
+            (checkboxChanged)="onCheckboxChange($event)"
+            tabindex="0">
           </app-image-checkbox>
         </div>
       </div>

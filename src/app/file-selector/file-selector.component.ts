@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChildren, ElementRef, AfterViewInit, HostListener } from '@angular/core';
+import { Component, QueryList, ViewChildren, ElementRef, HostListener } from '@angular/core';
 import { groups } from '../res/json/tags.json';
 
 @Component({
@@ -48,9 +48,9 @@ export class FileSelectorComponent {
     return foundImage ? foundImage.url : '';
   }
 
-  onCheckboxChange(chekboxStatus:any): void {
+  onCheckboxChange(chekboxStatus: any): void {
     if (chekboxStatus.checked) {
-      this.checkedLabels.add(chekboxStatus.label)
+      this.checkedLabels.add(chekboxStatus.label);
       this.checkedLabels.add(chekboxStatus?.groupLabel);
     } else {
       this.checkedLabels.delete(chekboxStatus.label);
@@ -60,11 +60,11 @@ export class FileSelectorComponent {
 
   uncheckAllCheckboxes(): void {
     this.checkboxesOld.forEach(checkbox => {
-      checkbox.checked = false; 
-      checkbox.checkboxChanged.emit(''); 
+      checkbox.checked = false;
+      checkbox.checkboxChanged.emit('');
     });
-    this.checkedLabels.clear(); 
-    this.label = ''; 
+    this.checkedLabels.clear();
+    this.label = '';
   }
 
   downloadTextFile(): void {

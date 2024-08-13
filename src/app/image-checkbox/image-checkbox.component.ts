@@ -10,12 +10,13 @@ export class ImageCheckboxComponent {
   @Input() label: string;
   @Input() image: string;
   @Input() groupLabel: string;
+  @Input() id: string; // New input for id
   @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
   @Output() checkboxChanged = new EventEmitter<object>();
 
   @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
-    event.stopPropagation();  
+    event.stopPropagation();
     if (event.shiftKey && event.key === 'ArrowDown') {
       event.preventDefault();
     } else {
@@ -35,12 +36,11 @@ export class ImageCheckboxComponent {
       }
     }
   }
-  
 
   toggleCheckbox(): void {
     this.checked = !this.checked;
     this.checkbox.nativeElement.checked = this.checked; // Ensure the checkbox state is visually updated
-    this.checkboxChanged.emit( {checked: this.checked, label: this.label,groupLabel: this.groupLabel});
+    this.checkboxChanged.emit({ checked: this.checked, label: this.label, groupLabel: this.groupLabel });
   }
 
   focusPreviousCheckbox(): void {

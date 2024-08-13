@@ -1,10 +1,11 @@
 <div class="checkbox-flex">
   <img *ngIf="image" [src]="image" alt="Image from folder" />
-  <input 
-    type="checkbox" 
+  <input
+    type="checkbox"
+    [id]="id" 
     [checked]="checked"
     #checkbox
     (keydown)="handleKeydown($event)"
-    tabindex="0"> <!-- Make the checkbox focusable -->
+    tabindex="0">
   {{ label }}
 </div>
