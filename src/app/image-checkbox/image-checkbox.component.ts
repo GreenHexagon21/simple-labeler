@@ -48,7 +48,7 @@ export class ImageCheckboxComponent {
   }
 
   focusNextCheckbox(): void {
-    this.focusCheckbox(1);
+    this.focusGroupCheckbox();
   }
 
   private focusCheckbox(offset: number): void {
@@ -63,5 +63,27 @@ export class ImageCheckboxComponent {
 
     // Focus the new checkbox
     checkboxes[newIndex].focus();
+
+  }
+
+  private focusGroupCheckbox() {
+        let offset = 1;
+        // Get all checkbox elements by their IDs in order
+        const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]')) as HTMLInputElement[];
+    
+        // Get the current index of the focused checkbox
+        const currentIndex = checkboxes.findIndex(cb => cb.id === this.id);
+    
+        // Calculate the new index to focus, ensuring it wraps around
+        let newIndex = (currentIndex + offset + checkboxes.length) % checkboxes.length;
+    
+        while (checkboxes[newIndex].closest('.group').id == checkboxes[currentIndex].closest('.group').id) {
+          offset++;
+          newIndex = (currentIndex + offset + checkboxes.length) % checkboxes.length;
+          console.log(newIndex)
+        }
+        // Focus the new checkbox
+        checkboxes[newIndex].focus();
+        
   }
 }

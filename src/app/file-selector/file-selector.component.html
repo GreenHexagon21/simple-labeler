@@ -11,7 +11,7 @@
   </div>
   <div>
     <div *ngIf="images.length > 0">
-      <div #group *ngFor="let group of data; let groupIndex = index">
+      <div #group class="group" *ngFor="let group of data; let groupIndex = index" [id]="'group-' + groupIndex" >
         <div *ngIf="group.tags">
           <app-image-checkbox
             *ngFor="let tag of group.tags; let tagIndex = index"
