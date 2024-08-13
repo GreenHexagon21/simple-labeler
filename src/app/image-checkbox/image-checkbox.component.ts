@@ -52,10 +52,16 @@ export class ImageCheckboxComponent {
   }
 
   private focusCheckbox(offset: number): void {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const currentIndex = Array.prototype.indexOf.call(checkboxes, this.checkbox.nativeElement);
+    // Get all checkbox elements by their IDs in order
+    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]')) as HTMLInputElement[];
+    
+    // Get the current index of the focused checkbox
+    const currentIndex = checkboxes.findIndex(cb => cb.id === this.id);
+
+    // Calculate the new index to focus, ensuring it wraps around
     const newIndex = (currentIndex + offset + checkboxes.length) % checkboxes.length;
-    const newCheckbox = checkboxes[newIndex] as HTMLElement;
-    newCheckbox.focus();
+
+    // Focus the new checkbox
+    checkboxes[newIndex].focus();
   }
 }
