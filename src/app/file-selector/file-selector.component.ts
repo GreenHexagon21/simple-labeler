@@ -18,17 +18,34 @@ export class FileSelectorComponent {
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
-    this.images = [];
-
+    const imageLoadPromises: Promise<{ name: string, url: string }>[] = [];
+  
     files.forEach(file => {
       if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.images.push({ name: file.name, url: e.target.result });
-        };
-        reader.readAsDataURL(file);
+        const promise = new Promise<{ name: string, url: string }>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = (e: any) => {
+            resolve({ name: file.name, url: e.target.result });
+          };
+          reader.onerror = (error) => reject(error);
+          reader.readAsDataURL(file);
+        });
+        imageLoadPromises.push(promise);
       }
     });
+  
+    // Wait for all images to load
+    Promise.all(imageLoadPromises)
+      .then(images => {
+        // Sort the images by name or any other attribute you want
+        images.sort((a, b) => a.name.localeCompare(b.name));
+  
+        // Update the images array
+        this.images = images;
+      })
+      .catch(error => {
+        console.error("Error loading images:", error);
+      });
   }
 
   imageStep(amount: number): void {
