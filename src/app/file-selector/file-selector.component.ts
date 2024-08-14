@@ -1,5 +1,6 @@
 import { Component, QueryList, ViewChildren, ElementRef, HostListener } from '@angular/core';
 import { groups } from '../res/json/tags.json';
+import { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';
 
 @Component({
   selector: 'app-file-selector',
@@ -12,9 +13,7 @@ export class FileSelectorComponent {
   data: any = groups;
   label: string = '';
   checkedLabels: Set<string> = new Set();
-  @ViewChildren('checkbox') checkboxes!: QueryList<ElementRef>;
-
-  @ViewChildren('appImageCheckbox') checkboxesOld: QueryList<any>;
+  @ViewChildren('appImageCheckbox') checkboxes!: QueryList<ImageCheckboxComponent>;
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
@@ -50,14 +49,10 @@ export class FileSelectorComponent {
 
   imageStep(amount: number): void {
     this.currentImageIndex += amount;
-
-    // Uncheck all checkboxes
-    this.uncheckAllCheckboxes();
-
-    // Check if we should download the TXT file when "Next" is clicked
-    if (amount > 0) {
+        if (amount > 0) {
       this.downloadTextFile();
     }
+    this.uncheckAllCheckboxes();
   }
 
   findImage(exampleImage: string): string {
@@ -65,20 +60,29 @@ export class FileSelectorComponent {
     return foundImage ? foundImage.url : '';
   }
 
-  onCheckboxChange(chekboxStatus: any): void {
-    if (chekboxStatus.checked) {
-      this.checkedLabels.add(chekboxStatus.label);
-      this.checkedLabels.add(chekboxStatus?.groupLabel);
+  onCheckboxChange(checkboxStatus: any): void {
+    if (checkboxStatus.checked) {
+      if (checkboxStatus.label) {
+        this.checkedLabels.add(checkboxStatus.label);
+      }
+      if (checkboxStatus.groupLabel) {
+        this.checkedLabels.add(checkboxStatus.groupLabel);
+      }
     } else {
-      this.checkedLabels.delete(chekboxStatus.label);
+      this.checkedLabels.delete(checkboxStatus.label);
     }
     this.label = Array.from(this.checkedLabels).join(', ');
   }
 
   uncheckAllCheckboxes(): void {
-    this.checkboxesOld.forEach(checkbox => {
-      checkbox.checked = false;
-      checkbox.checkboxChanged.emit('');
+    this.checkboxes.forEach((checkboxComponent) => {
+      checkboxComponent.checked = false;
+      //checkboxComponent.checkbox.nativeElement.checked = false;
+      checkboxComponent.checkboxChanged.emit({
+        checked: false,
+        label: checkboxComponent.label,
+        groupLabel: checkboxComponent.groupLabel,
+      });
     });
     this.checkedLabels.clear();
     this.label = '';

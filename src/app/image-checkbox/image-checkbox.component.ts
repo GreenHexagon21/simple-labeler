@@ -61,12 +61,14 @@ export class ImageCheckboxComponent {
 
   toggleCheckbox(): void {
     this.checked = !this.checked;
-    this.checkbox.nativeElement.checked = this.checked; // Ensure the checkbox state is visually updated
-    this.checkboxChanged.emit({
-      checked: this.checked,
-      label: this.label,
-      groupLabel: this.groupLabel,
-    });
+    //this.checkbox.nativeElement.checked = this.checked; // Ensure the checkbox state is visually updated
+    if (this.label) {
+      this.checkboxChanged.emit({
+        checked: this.checked,
+        label: this.label,
+        groupLabel: this.groupLabel,
+      });
+    }
   }
 
   focusPreviousCheckbox(): void {
