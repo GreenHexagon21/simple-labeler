@@ -1,62 +1,70 @@
-import { Component, QueryList, ViewChildren, ElementRef, HostListener } from '@angular/core';
+import {
+  Component,
+  QueryList,
+  ViewChildren,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
 import { groups } from '../res/json/tags.json';
 import { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';
 
 @Component({
   selector: 'app-file-selector',
   templateUrl: './file-selector.component.html',
-  styleUrls: ['./file-selector.component.scss']
+  styleUrls: ['./file-selector.component.scss'],
 })
 export class FileSelectorComponent {
-  images: { name: string, url: string }[] = [];
+  images: { name: string; url: string }[] = [];
   currentImageIndex = 0;
   data: any = groups;
   label: string = '';
   checkedLabels: Set<string> = new Set();
-  @ViewChildren('appImageCheckbox') checkboxes!: QueryList<ImageCheckboxComponent>;
+  @ViewChildren('appImageCheckbox')
+  checkboxes!: QueryList<ImageCheckboxComponent>;
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
-    const imageLoadPromises: Promise<{ name: string, url: string }>[] = [];
-  
-    files.forEach(file => {
+    const imageLoadPromises: Promise<{ name: string; url: string }>[] = [];
+
+    files.forEach((file) => {
       if (file.type.startsWith('image/')) {
-        const promise = new Promise<{ name: string, url: string }>((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = (e: any) => {
-            resolve({ name: file.name, url: e.target.result });
-          };
-          reader.onerror = (error) => reject(error);
-          reader.readAsDataURL(file);
-        });
+        const promise = new Promise<{ name: string; url: string }>(
+          (resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e: any) => {
+              resolve({ name: file.name, url: e.target.result });
+            };
+            reader.onerror = (error) => reject(error);
+            reader.readAsDataURL(file);
+          }
+        );
         imageLoadPromises.push(promise);
       }
     });
-  
+
     // Wait for all images to load
     Promise.all(imageLoadPromises)
-      .then(images => {
+      .then((images) => {
         // Sort the images by name or any other attribute you want
         images.sort((a, b) => a.name.localeCompare(b.name));
-  
+
         // Update the images array
         this.images = images;
       })
-      .catch(error => {
-        console.error("Error loading images:", error);
+      .catch((error) => {
+        console.error('Error loading images:', error);
       });
   }
 
   imageStep(amount: number): void {
     this.currentImageIndex += amount;
-        if (amount > 0) {
+    if (amount > 0) {
       this.downloadTextFile();
     }
-    this.uncheckAllCheckboxes();
   }
 
   findImage(exampleImage: string): string {
-    const foundImage = this.images.find(image => image.name === exampleImage);
+    const foundImage = this.images.find((image) => image.name === exampleImage);
     return foundImage ? foundImage.url : '';
   }
 
@@ -77,34 +85,43 @@ export class FileSelectorComponent {
   uncheckAllCheckboxes(): void {
     this.checkboxes.forEach((checkboxComponent) => {
       checkboxComponent.checked = false;
-      //checkboxComponent.checkbox.nativeElement.checked = false;
+      checkboxComponent.checkbox.nativeElement.checked = false;
       checkboxComponent.checkboxChanged.emit({
         checked: false,
         label: checkboxComponent.label,
         groupLabel: checkboxComponent.groupLabel,
       });
     });
+
     this.checkedLabels.clear();
     this.label = '';
   }
 
   downloadTextFile(): void {
-    if (this.images.length === 0 || this.currentImageIndex < 0 || this.currentImageIndex >= this.images.length) {
-      console.error("No image available or invalid index");
+    if (
+      this.images.length === 0 ||
+      this.currentImageIndex < 0 ||
+      this.currentImageIndex >= this.images.length
+    ) {
+      console.error('No image available or invalid index');
       return;
     }
-  
+
     const textContent = this.label;
     const blob = new Blob([textContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
-  
-    const baseName = this.images[this.currentImageIndex].name.replace(/\.[^/.]+$/, "");
+
+    const baseName = this.images[this.currentImageIndex].name.replace(
+      /\.[^/.]+$/,
+      ''
+    );
     const a = document.createElement('a');
     a.href = url;
     a.download = baseName + '.txt';
     a.click();
-  
+
     URL.revokeObjectURL(url);
+    this.uncheckAllCheckboxes();
   }
 
   @HostListener('window:keydown', ['$event'])
