@@ -13,13 +13,16 @@ export class FileSelectorComponent {
   label: string = '';
   checkedLabels: Set<string> = new Set();
   @ViewChildren('checkbox') checkboxes!: QueryList<ElementRef>;
-
   @ViewChildren('appImageCheckbox') checkboxesOld: QueryList<any>;
 
   onFolderSelect(event: any): void {
-    const files = Array.from(event.target.files) as File[];
+    // Convert FileList to an array and sort it by file name
+    const files = Array.from(event.target.files).sort((a: File, b: File) => {
+      return a.name.localeCompare(b.name);
+    }) as File[];
+  
     this.images = [];
-
+  
     files.forEach(file => {
       if (file.type.startsWith('image/')) {
         const reader = new FileReader();

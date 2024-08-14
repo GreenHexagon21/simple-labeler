@@ -12,6 +12,7 @@
   <div>
     <div *ngIf="images.length > 0">
       <div #group class="group" *ngFor="let group of data; let groupIndex = index" [id]="'group-' + groupIndex" >
+        <br>
         <div *ngIf="group.tags">
           <app-image-checkbox
             *ngFor="let tag of group.tags; let tagIndex = index"
@@ -21,6 +22,8 @@
             [groupLabel]="group.defaultTag"
             [label]="tag.name"
             (checkboxChanged)="onCheckboxChange($event)"
+            (arrowRight)="imageStep($event)"
+            (arrowLeft)="imageStep($event)"
             tabindex="0">
           </app-image-checkbox>
         </div>

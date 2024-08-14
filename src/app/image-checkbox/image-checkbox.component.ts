@@ -1,9 +1,17 @@
-import { Component, ElementRef, Input, Output, EventEmitter, ViewChild, HostListener } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  HostListener,
+} from '@angular/core';
 
 @Component({
   selector: 'app-image-checkbox',
   templateUrl: './image-checkbox.component.html',
-  styleUrls: ['./image-checkbox.component.scss']
+  styleUrls: ['./image-checkbox.component.scss'],
 })
 export class ImageCheckboxComponent {
   @Input() checked: boolean = false;
@@ -13,34 +21,52 @@ export class ImageCheckboxComponent {
   @Input() id: string; // New input for id
   @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
   @Output() checkboxChanged = new EventEmitter<object>();
+  @Output() arrowRight = new EventEmitter<number>();
+  @Output() arrowLeft = new EventEmitter<number>();
 
   @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
     event.stopPropagation();
-    if (event.shiftKey && event.key === 'ArrowDown') {
-      event.preventDefault();
-    } else {
-      switch (event.key) {
-        case 'Enter':
-          this.toggleCheckbox();
-          event.preventDefault();
-          break;
-        case 'ArrowUp':
-          this.focusPreviousCheckbox();
-          event.preventDefault();
-          break;
-        case 'ArrowDown':
-          this.focusNextCheckbox();
-          event.preventDefault();
-          break;
-      }
+    switch (event.key) {
+      case 'Enter':
+        this.toggleCheckbox();
+        event.preventDefault();
+        break;
+      case 'ArrowUp':
+        this.focusPreviousCheckbox();
+        event.preventDefault();
+        break;
+      case 'ArrowDown':
+        this.focusNextCheckbox();
+        event.preventDefault();
+        break;
+      case 'PageUp':
+        this.focusPreviousGroup();
+        event.preventDefault();
+        break;
+      case 'PageDown':
+        this.focusNextGroupCheckbox();
+        event.preventDefault();
+        break;
+      case 'ArrowLeft':
+        this.arrowLeft.emit(-1);
+        event.preventDefault();
+        break;
+      case 'ArrowRight':
+        this.arrowRight.emit(1);
+        event.preventDefault();
+        break;
     }
   }
 
   toggleCheckbox(): void {
     this.checked = !this.checked;
     this.checkbox.nativeElement.checked = this.checked; // Ensure the checkbox state is visually updated
-    this.checkboxChanged.emit({ checked: this.checked, label: this.label, groupLabel: this.groupLabel });
+    this.checkboxChanged.emit({
+      checked: this.checked,
+      label: this.label,
+      groupLabel: this.groupLabel,
+    });
   }
 
   focusPreviousCheckbox(): void {
@@ -48,42 +74,62 @@ export class ImageCheckboxComponent {
   }
 
   focusNextCheckbox(): void {
-    this.focusGroupCheckbox();
+    this.focusCheckbox(1);
+  }
+
+  focusPreviousGroup(): void {
+    this.focusPreviousGroupCheckbox();
+  }
+
+  focusNextGroup(): void {
+    this.focusNextGroupCheckbox();
   }
 
   private focusCheckbox(offset: number): void {
-    // Get all checkbox elements by their IDs in order
-    const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]')) as HTMLInputElement[];
-    
-    // Get the current index of the focused checkbox
-    const currentIndex = checkboxes.findIndex(cb => cb.id === this.id);
-
-    // Calculate the new index to focus, ensuring it wraps around
-    const newIndex = (currentIndex + offset + checkboxes.length) % checkboxes.length;
-
-    // Focus the new checkbox
+    const checkboxes = Array.from(
+      document.querySelectorAll('input[type="checkbox"]')
+    ) as HTMLInputElement[];
+    const currentIndex = checkboxes.findIndex((cb) => cb.id === this.id);
+    const newIndex =
+      (currentIndex + offset + checkboxes.length) % checkboxes.length;
     checkboxes[newIndex].focus();
-
   }
 
-  private focusGroupCheckbox() {
-        let offset = 1;
-        // Get all checkbox elements by their IDs in order
-        const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]')) as HTMLInputElement[];
-    
-        // Get the current index of the focused checkbox
-        const currentIndex = checkboxes.findIndex(cb => cb.id === this.id);
-    
-        // Calculate the new index to focus, ensuring it wraps around
-        let newIndex = (currentIndex + offset + checkboxes.length) % checkboxes.length;
-    
-        while (checkboxes[newIndex].closest('.group').id == checkboxes[currentIndex].closest('.group').id) {
-          offset++;
-          newIndex = (currentIndex + offset + checkboxes.length) % checkboxes.length;
-          console.log(newIndex)
-        }
-        // Focus the new checkbox
-        checkboxes[newIndex].focus();
-        
+  private focusNextGroupCheckbox() {
+    let offset = 1;
+    const checkboxes = Array.from(
+      document.querySelectorAll('input[type="checkbox"]')
+    ) as HTMLInputElement[];
+    const currentIndex = checkboxes.findIndex((cb) => cb.id === this.id);
+    let newIndex =
+      (currentIndex + offset + checkboxes.length) % checkboxes.length;
+    while (
+      checkboxes[newIndex].closest('.group').id ==
+      checkboxes[currentIndex].closest('.group').id
+    ) {
+      offset++;
+      newIndex =
+        (currentIndex + offset + checkboxes.length) % checkboxes.length;
+    }
+    checkboxes[newIndex].focus();
+  }
+  private focusPreviousGroupCheckbox() {
+    let offset = -1;
+    const checkboxes = Array.from(
+      document.querySelectorAll('input[type="checkbox"]')
+    ) as HTMLInputElement[];
+    const currentIndex = checkboxes.findIndex((cb) => cb.id === this.id);
+    let newIndex =
+      (currentIndex + offset + checkboxes.length) % checkboxes.length;
+    while (
+      checkboxes[newIndex].closest('.group').id ==
+      checkboxes[currentIndex].closest('.group').id
+    ) {
+      offset--;
+      newIndex =
+        (currentIndex + offset + checkboxes.length) % checkboxes.length;
+    }
+    console.log(newIndex);
+    checkboxes[newIndex].focus();
   }
 }
