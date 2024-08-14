@@ -83,16 +83,10 @@ export class FileSelectorComponent {
   }
 
   uncheckAllCheckboxes(): void {
-    this.checkboxes.forEach((checkboxComponent) => {
-      checkboxComponent.checked = false;
-      checkboxComponent.checkbox.nativeElement.checked = false;
-      checkboxComponent.checkboxChanged.emit({
-        checked: false,
-        label: checkboxComponent.label,
-        groupLabel: checkboxComponent.groupLabel,
-      });
+    this.checkboxes.forEach((checkbox) => {
+      checkbox.checked = false; // Uncheck the checkbox
+      checkbox.checkbox.nativeElement.checked = false; // Ensure the checkbox element is visually updated
     });
-
     this.checkedLabels.clear();
     this.label = '';
   }
