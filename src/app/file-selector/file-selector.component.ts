@@ -85,13 +85,21 @@ export class FileSelectorComponent {
   }
 
   downloadTextFile(): void {
+    if (this.images.length === 0 || this.currentImageIndex < 0 || this.currentImageIndex >= this.images.length) {
+      console.error("No image available or invalid index");
+      return;
+    }
+  
     const textContent = this.label;
     const blob = new Blob([textContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
+  
+    const baseName = this.images[this.currentImageIndex].name.replace(/\.[^/.]+$/, "");
     const a = document.createElement('a');
     a.href = url;
-    a.download = this.images[this.currentImageIndex]?.name.slice(0, -4) + '.txt';
+    a.download = baseName + '.txt';
     a.click();
+  
     URL.revokeObjectURL(url);
   }
 
