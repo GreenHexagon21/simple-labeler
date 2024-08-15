@@ -21,6 +21,13 @@ export class FileSelectorComponent {
   checkedLabels: Set<string> = new Set();
   @ViewChildren(ImageCheckboxComponent) checkboxes!: QueryList<ImageCheckboxComponent>;
 
+  ngAfterViewInit(): void {
+    this.data.baseline.forEach(basetag => {
+      this.checkedLabels.add(basetag)
+    });
+    this.label = Array.from(this.checkedLabels).join(', ');
+  }
+
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
     const imageLoadPromises: Promise<{ name: string; url: string }>[] = [];
@@ -61,6 +68,9 @@ export class FileSelectorComponent {
       this.downloadTextFile();
     }
     this.uncheckAllCheckboxes();
+    this.data.baseline.forEach(basetag => {
+      this.checkedLabels.add(basetag)
+    });
   }
 
   findImage(exampleImage: string): string {
@@ -84,7 +94,6 @@ export class FileSelectorComponent {
 
   uncheckAllCheckboxes(): void {
     this.checkboxes.forEach((checkbox) => {
-      console.log(checkbox);
       checkbox.checked = false; // Uncheck the checkbox
       checkbox.checkbox.nativeElement.checked = false; // Ensure the checkbox element is visually updated
     });

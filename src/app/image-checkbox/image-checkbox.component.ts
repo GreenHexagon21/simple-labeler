@@ -94,6 +94,7 @@ export class ImageCheckboxComponent {
     const currentIndex = checkboxes.findIndex((cb) => cb.id === this.id);
     const newIndex =
       (currentIndex + offset + checkboxes.length) % checkboxes.length;
+      checkboxes[newIndex].closest('.checkbox-flex').scrollIntoView({ behavior: "smooth", block: "center" })
     checkboxes[newIndex].focus();
   }
 
