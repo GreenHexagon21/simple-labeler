@@ -19,8 +19,7 @@ export class FileSelectorComponent {
   data: any = groups;
   label: string = '';
   checkedLabels: Set<string> = new Set();
-  @ViewChildren('appImageCheckbox')
-  checkboxes!: QueryList<ImageCheckboxComponent>;
+  @ViewChildren(ImageCheckboxComponent) checkboxes!: QueryList<ImageCheckboxComponent>;
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];
@@ -61,6 +60,7 @@ export class FileSelectorComponent {
     if (amount > 0) {
       this.downloadTextFile();
     }
+    this.uncheckAllCheckboxes();
   }
 
   findImage(exampleImage: string): string {
@@ -84,6 +84,7 @@ export class FileSelectorComponent {
 
   uncheckAllCheckboxes(): void {
     this.checkboxes.forEach((checkbox) => {
+      console.log(checkbox);
       checkbox.checked = false; // Uncheck the checkbox
       checkbox.checkbox.nativeElement.checked = false; // Ensure the checkbox element is visually updated
     });
@@ -115,7 +116,6 @@ export class FileSelectorComponent {
     a.click();
 
     URL.revokeObjectURL(url);
-    this.uncheckAllCheckboxes();
   }
 
   @HostListener('window:keydown', ['$event'])

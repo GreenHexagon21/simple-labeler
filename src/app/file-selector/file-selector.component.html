@@ -3,9 +3,9 @@
     <input type="file" webkitdirectory directory (change)="onFolderSelect($event)" />
     <img *ngIf="images.length > 0" [src]="images[currentImageIndex]?.url" alt="Image from folder" />
     <div *ngIf="images.length > 0" class="buttons-flex">
-      <p-button (onClick)="imageStep(1)" label="Next"></p-button>
-      <input class="image-number" [(ngModel)]="currentImageIndex" type="text">
       <p-button (onClick)="imageStep(-1)" label="Prev"></p-button>
+      <input class="image-number" [(ngModel)]="currentImageIndex" type="text">
+      <p-button (onClick)="imageStep(1)" label="Next"></p-button>
     </div>
     <textarea [(ngModel)]="label"></textarea>
   </div>
