@@ -15,7 +15,7 @@ import { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.compone
 })
 export class FileSelectorComponent {
   images: { name: string; url: string }[] = [];
-  currentImageIndex = 0;
+  currentImageIndex:number = 0;
   data: any = groups;
   label: string = '';
   checkedLabels: Set<string> = new Set();
@@ -63,7 +63,7 @@ export class FileSelectorComponent {
   }
 
   imageStep(amount: number): void {
-    this.currentImageIndex += amount;
+    this.currentImageIndex = amount + +this.currentImageIndex;
     if (amount > 0) {
       this.downloadTextFile();
     }
