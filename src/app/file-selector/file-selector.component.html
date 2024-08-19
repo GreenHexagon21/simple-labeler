@@ -1,3 +1,4 @@
+<div id="top"></div>
 <div class="file-selector-flex">
   <div class="inputs-flex">
     <input type="file" webkitdirectory directory (change)="onFolderSelect($event)" />
@@ -8,6 +9,9 @@
       <p-button (onClick)="imageStep(1)" label="Next"></p-button>
     </div>
     <textarea [(ngModel)]="label"></textarea>
+    <a href="#top" class="p-button font-bold">
+      Go to top
+  </a>
   </div>
   <div>
     <div *ngIf="images.length > 0">
