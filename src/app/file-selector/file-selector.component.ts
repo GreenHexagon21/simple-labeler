@@ -115,7 +115,7 @@ export class FileSelectorComponent {
     const blob = new Blob([textContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
 
-    const baseName = this.images[this.currentImageIndex].name.replace(
+    const baseName = this.images[this.currentImageIndex-1].name.replace(
       /\.[^/.]+$/,
       ''
     );
