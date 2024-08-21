@@ -15,20 +15,21 @@ import { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.compone
 })
 export class FileSelectorComponent {
   images: { name: string; url: string }[] = [];
-  currentImageIndex:number = 0;
+  currentImageIndex: number = 0;
   data: any = groups;
   label: string = '';
   checkedLabels: Set<string> = new Set();
-  @ViewChildren(ImageCheckboxComponent) checkboxes!: QueryList<ImageCheckboxComponent>;
+  @ViewChildren(ImageCheckboxComponent)
+  checkboxes!: QueryList<ImageCheckboxComponent>;
 
   ngAfterViewInit(): void {
-    this.data.baseline.forEach(basetag => {
-      this.checkedLabels.add(basetag)
+    this.data.baseline.forEach((basetag) => {
+      this.checkedLabels.add(basetag);
     });
     this.label = Array.from(this.checkedLabels).join(', ');
   }
   hide() {
-    window.location.href = "http://localhost:4200/"
+    window.location.href = 'http://localhost:4200/';
   }
 
   onFolderSelect(event: any): void {
@@ -71,8 +72,8 @@ export class FileSelectorComponent {
       this.downloadTextFile();
     }
     this.uncheckAllCheckboxes();
-    this.data.baseline.forEach(basetag => {
-      this.checkedLabels.add(basetag)
+    this.data.baseline.forEach((basetag) => {
+      this.checkedLabels.add(basetag);
     });
   }
 
@@ -118,7 +119,7 @@ export class FileSelectorComponent {
     const blob = new Blob([textContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
 
-    const baseName = this.images[this.currentImageIndex-1].name.replace(
+    const baseName = this.images[this.currentImageIndex - 1].name.replace(
       /\.[^/.]+$/,
       ''
     );
@@ -139,6 +140,10 @@ export class FileSelectorComponent {
         break;
       case 'ArrowRight':
         this.imageStep(1);
+        event.preventDefault();
+        break;
+      case 'ű':
+        this.hide();
         event.preventDefault();
         break;
     }

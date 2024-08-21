@@ -57,10 +57,14 @@ export class ImageCheckboxComponent {
         this.arrowRight.emit(1);
         event.preventDefault();
         break;
-      case 'Insert':
-          this.hide.emit();
-          event.preventDefault();
-          break;
+      case 'ű':
+        this.hide.emit();
+        event.preventDefault();
+        break;
+      case 'Home':
+        this.focusCheckboxWithIndex(0);
+        event.preventDefault();
+        break;
     }
   }
 
@@ -99,8 +103,17 @@ export class ImageCheckboxComponent {
     const currentIndex = checkboxes.findIndex((cb) => cb.id === this.id);
     const newIndex =
       (currentIndex + offset + checkboxes.length) % checkboxes.length;
-      checkboxes[newIndex].closest('.checkbox-flex').scrollIntoView({  block: "center" })
+    checkboxes[newIndex]
+      .closest('.checkbox-flex')
+      .scrollIntoView({ block: 'center' });
     checkboxes[newIndex].focus();
+  }
+
+  private focusCheckboxWithIndex(index: number): void {
+    const checkboxes = Array.from(
+      document.querySelectorAll('input[type="checkbox"]')
+    ) as HTMLInputElement[];
+    checkboxes[index].focus();
   }
 
   private focusNextGroupCheckbox() {

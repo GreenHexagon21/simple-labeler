@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'simple-labeler';
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeydown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case 'ű':
+        this.hide();
+        event.preventDefault();
+        break;
+    }
+  }
+  hide() {
+    window.location.href = 'http://localhost:4200/';
+  }
 }
