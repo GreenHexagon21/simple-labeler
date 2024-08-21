@@ -27,6 +27,9 @@ export class FileSelectorComponent {
     });
     this.label = Array.from(this.checkedLabels).join(', ');
   }
+  hide() {
+    window.location.href = "http://localhost:4200/"
+  }
 
   onFolderSelect(event: any): void {
     const files = Array.from(event.target.files) as File[];

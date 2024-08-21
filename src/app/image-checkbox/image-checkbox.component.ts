@@ -23,6 +23,7 @@ export class ImageCheckboxComponent {
   @Output() checkboxChanged = new EventEmitter<object>();
   @Output() arrowRight = new EventEmitter<number>();
   @Output() arrowLeft = new EventEmitter<number>();
+  @Output() hide = new EventEmitter();
 
   @HostListener('keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
@@ -56,6 +57,10 @@ export class ImageCheckboxComponent {
         this.arrowRight.emit(1);
         event.preventDefault();
         break;
+      case 'Insert':
+          this.hide.emit();
+          event.preventDefault();
+          break;
     }
   }
 
