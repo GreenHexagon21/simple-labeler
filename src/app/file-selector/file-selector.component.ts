@@ -6,6 +6,7 @@ import {
   HostListener,
 } from '@angular/core';
 import { groups } from '../res/json/tags.json';
+import { baseline } from '../res/json/tags.json';
 import { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';
 
 @Component({
@@ -17,13 +18,14 @@ export class FileSelectorComponent {
   images: { name: string; url: string }[] = [];
   currentImageIndex: number = 0;
   data: any = groups;
+  baseLabels = baseline;
   label: string = '';
   checkedLabels: Set<string> = new Set();
   @ViewChildren(ImageCheckboxComponent)
   checkboxes!: QueryList<ImageCheckboxComponent>;
 
   ngAfterViewInit(): void {
-    this.data.baseline.forEach((basetag) => {
+    this.baseLabels.forEach((basetag) => {
       this.checkedLabels.add(basetag);
     });
     this.label = Array.from(this.checkedLabels).join(', ');
@@ -72,7 +74,7 @@ export class FileSelectorComponent {
       this.downloadTextFile();
     }
     this.uncheckAllCheckboxes();
-    this.data.baseline.forEach((basetag) => {
+    this.baseLabels.forEach((basetag) => {
       this.checkedLabels.add(basetag);
     });
   }

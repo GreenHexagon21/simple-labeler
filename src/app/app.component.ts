@@ -6,7 +6,7 @@ import { Component, HostListener, Renderer2 } from '@angular/core';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'simple-labeler';
+  title = 'SoteExcer';
   imagesEnabled = true;
   constructor(private renderer: Renderer2) {}
 
