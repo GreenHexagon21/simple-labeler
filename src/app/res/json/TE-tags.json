@@ -1,0 +1,96 @@
+{
+  "baseline": [
+    "teemo",
+    "yordle"
+  ],
+  "groups": [
+    {
+      "tags": [
+        {
+          "name": "solo",
+          "example": ""
+        },
+        {
+          "name": "duo",
+          "example": ""
+        },
+        {
+          "name": "group",
+          "example": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "fizz",
+          "example": ""
+        },
+        {
+          "name": "veigar",
+          "example": ""
+        },
+        {
+          "name": "gnar",
+          "example": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "green hat",
+          "example": ""
+        },
+        {
+          "name": "green clothes",
+          "example": ""
+        },
+        {
+          "name": "green boots",
+          "example": ""
+        },
+        {
+          "name": "green gloves",
+          "example": ""
+        },
+        {
+          "name": "red glasses",
+          "example": ""
+        },
+        {
+          "name": "underwear",
+          "example": ""
+        },
+        {
+          "name": "neck fur",
+          "example": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "short stack",
+          "example": ""
+        },
+        {
+          "name": "chibi",
+          "example": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+        {
+          "name": "pawpads",
+          "example": ""
+        },
+        {
+          "name": "male",
+          "example": ""
+        }
+      ]
+    }
+  ]
+}
