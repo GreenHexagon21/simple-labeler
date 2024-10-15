@@ -77,6 +77,8 @@ export class FileSelectorComponent {
     this.baseLabels.forEach((basetag) => {
       this.checkedLabels.add(basetag);
     });
+    // Update the label after modifying checkedLabels
+    this.label = Array.from(this.checkedLabels).join(', ');
   }
 
   findImage(exampleImage: string): string {
