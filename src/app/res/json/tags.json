@@ -1,36 +1,20 @@
 {
   "baseline": [
-    "SmoldLOL",
-    "dragon",
-    "red body",
-    "blue accents",
-    "flaming horns",
-    "beige underbelly",
-    "green eyes",
-    "wings",
-    "blue scales"
+    "Rethex",
+    "arcalithe",
+    "pokemon",
+    "orange_fur",
+    "yellow_fur",
+    "black_stripes",
+    "brown_ears",
+    "canine",
+    "anthro"
   ],
   "groups": [
     {
       "tags": [
         {
-          "name": "sfw",
-          "example": ""
-        },
-        {
-          "name": "nsfw",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
           "name": "feral",
-          "example": ""
-        },
-        {
-          "name": "anthro",
           "example": ""
         }
       ]
@@ -44,21 +28,129 @@
         {
           "name": "duo",
           "example": ""
+        },
+        {
+          "name": "trio",
+          "example": ""
+        },
+        {
+          "name": "group",
+          "example": ""
         }
       ]
     },
-    {
+     {
       "tags": [
+        {
+          "name": "arcanine",
+          "example": ""
+        },
+        {
+          "name": "growlithe",
+          "example": ""
+        }
+      ]
+    },
+         {
+      "tags": [
+        {
+          "name": "chubby",
+          "example": ""
+        },
+        {
+          "name": "slim",
+          "example": ""
+        },
+        {
+          "name": "muscular",
+          "example": ""
+        },
+        {
+          "name": "shortstack",
+          "example": ""
+        },
         {
           "name": "pawpads",
           "example": ""
         }
       ]
     },
-    {
+         {
       "tags": [
         {
-          "name": "smug",
+          "name": "brown_eye_spot",
+          "example": ""
+        },
+        {
+          "name": "black_eye_spot",
+          "example": ""
+        },
+        {
+          "name": "ear_jewelry",
+          "example": ""
+        },
+        {
+          "name": "chastity_cage, chastity",
+          "example": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+                {
+          "name": "humanoid_penis",
+          "example": ""
+        },
+                {
+          "name": "foreskin",
+          "example": ""
+        },
+                        {
+          "name": "flaccid",
+          "example": ""
+        },
+                                {
+          "name": "erect",
+          "example": ""
+        },
+                        {
+          "name": "cute_penis",
+          "example": ""
+        },
+        {
+          "name": "canine_penis",
+          "example": ""
+        },
+                {
+          "name": "knot",
+          "example": ""
+        },
+        {
+          "name": "sheath",
+          "example": ""
+        }
+      ]
+    },
+    {
+      "tags": [
+                {
+          "name": "young",
+          "example": ""
+        },
+                        {
+          "name": "adult",
+          "example": ""
+        },
+        {
+          "name": "youngrethex",
+          "example": ""
+        },
+        {
+          "name": "adultrethex",
+          "example": ""
+        },
+        {
+          "name": "babyrethex",
           "example": ""
         }
       ]
@@ -66,111 +158,11 @@
     {
       "tags": [
         {
-          "name": "flaming tail",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "penis",
+          "name": "subrethex",
           "example": ""
         },
         {
-          "name": "penis slit",
-          "example": ""
-        },
-        {
-          "name": "pussy",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "anus",
-          "example": ""
-        },
-        {
-          "name": "balls",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "tapering penis",
-          "example": ""
-        },
-        {
-          "name": "canine penis",
-          "example": ""
-        },
-        {
-          "name": "ridged penis",
-          "example": ""
-        },
-        {
-          "name": "humanoid penis",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "censorline",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "cum",
-          "example": ""
-        },
-        {
-          "name": "precum",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "anal",
-          "example": ""
-        },
-        {
-          "name": "masturbating",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "male/male",
-          "example": ""
-        },
-        {
-          "name": "male/female",
-          "example": ""
-        }
-      ]
-    },
-    {
-      "tags": [
-        {
-          "name": "smallderg",
-          "example": ""
-        },
-        {
-          "name": "chibi",
+          "name": "domrethex",
           "example": ""
         }
       ]

@@ -1,11 +1,16 @@
 <div class="checkbox-flex">
-  <img *ngIf="image" [src]="image" alt="Image from folder" />
+  <img *ngIf="image" [src]="image" [alt]="label || 'Image from folder'" />
+
   <input
     type="checkbox"
-    [id]="id" 
+    [id]="id"
     [checked]="checked"
     #checkbox
     (keydown)="handleKeydown($event)"
-    tabindex="0">
-  {{ label }}
+    (change)="onNativeChange($event)"
+    [attr.aria-checked]="checked"
+    tabindex="0"
+  />
+
+  <label [for]="id">{{ label }}</label>
 </div>

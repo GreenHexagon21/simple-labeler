@@ -1,23 +1,69 @@
 <div id="top"></div>
+
 <div class="file-selector-flex">
   <div class="inputs-flex">
-    <input type="file" webkitdirectory directory (change)="onFolderSelect($event)" />
-    <img *ngIf="images.length > 0" [src]="images[currentImageIndex]?.url" alt="Image from folder" />
+    <!-- Folder picker -->
+    <input
+      type="file"
+      webkitdirectory
+      directory
+      accept="image/*"
+      (change)="onFolderSelect($event)"
+      aria-label="Select a folder of images"
+    />
+
+    <!-- Current image preview -->
+    <img
+      *ngIf="images.length > 0"
+      [src]="images[currentImageIndex]?.url"
+      [alt]="images[currentImageIndex]?.name || 'Image from folder'"
+    />
+
+    <!-- Navigation -->
     <div *ngIf="images.length > 0" class="buttons-flex">
-      <p-button (onClick)="imageStep(-1)" label="Prev"></p-button>
-      <input type="number" class="image-number" [(ngModel)]="currentImageIndex" type="text">
-      <p-button (onClick)="imageStep(1)" label="Next"></p-button>
+      <p-button (onClick)="imageStep(-1)" label="Prev" ariaLabel="Previous image"></p-button>
+
+      <input
+        class="image-number"
+        type="number"
+        min="0"
+        [max]="images.length - 1"
+        [(ngModel)]="currentImageIndex"
+        (ngModelChange)="onIndexInputChange($event)"
+        aria-label="Current image index"
+      />
+
+      <p-button (onClick)="imageStep(1)" label="Next" ariaLabel="Next image"></p-button>
+
+      <span class="image-counter" aria-live="polite">
+        {{ currentImageIndex + 1 }} / {{ images.length }}
+      </span>
     </div>
-    <textarea [(ngModel)]="label"></textarea>
+
+    <!-- Labels textarea -->
+    <label class="sr-only" for="labelsArea">Labels</label>
+    <textarea
+      id="labelsArea"
+      [(ngModel)]="label"
+      placeholder="Labels will appear here…"
+      aria-label="Collected labels"
+    ></textarea>
   </div>
+
+  <!-- Tag groups / checkboxes -->
   <div>
     <div *ngIf="images.length > 0">
-      <div #group class="group" *ngFor="let group of data; let groupIndex = index" [id]="'group-' + groupIndex" >
-        <br>
-        <div *ngIf="group.tags">
+      <div
+        class="group"
+        *ngFor="let group of data; let groupIndex = index; trackBy: trackByGroup"
+        [id]="'group-' + groupIndex"
+      >
+        <br />
+
+        <ng-container *ngIf="group.tags?.length">
           <app-image-checkbox
-            *ngFor="let tag of group.tags; let tagIndex = index"
-            [id]="'checkbox-' + groupIndex + '-' + tagIndex" 
+            *ngFor="let tag of group.tags; let tagIndex = index; trackBy: trackByTag"
+            [id]="'checkbox-' + groupIndex + '-' + tagIndex"
             [image]="findImage(tag.example)"
             [checked]="false"
             [groupLabel]="group.defaultTag"
@@ -26,9 +72,10 @@
             (arrowRight)="imageStep($event)"
             (arrowLeft)="imageStep($event)"
             (hide)="hide()"
-            tabindex="0">
+            tabindex="0"
+          >
           </app-image-checkbox>
-        </div>
+        </ng-container>
       </div>
     </div>
   </div>
