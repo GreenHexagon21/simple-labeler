@@ -7,27 +7,9 @@ import {
 } from '@angular/core';
 import { ImageCheckboxComponent } from '../image-checkbox/image-checkbox.component';
 
-/**
- * Adjust these interfaces to match your tags.json structure precisely.
- */
-interface Tag {
-  name: string;
-  example: string;
-}
+interface Tag { name: string; example: string; }
+interface TagGroup { defaultTag: string; tags: Tag[]; }
 
-interface TagGroup {
-  defaultTag: string;
-  tags: Tag[];
-}
-
-/**
- * If your bundler allows JSON imports with types, you can:
- *   import tags from '../res/json/tags.json';
- * and destructure:
- *   const { groups, baseline } = tags as { groups: TagGroup[]; baseline: string[] };
- * For your original pattern, keep separate named imports:
- */
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import { groups } from '../res/json/tags.json';
 import { baseline } from '../res/json/tags.json';
 
@@ -39,10 +21,11 @@ type ImageEntry = { name: string; url: string };
   styleUrls: ['./file-selector.component.scss'],
 })
 export class FileSelectorComponent implements AfterViewInit {
+  private static readonly STORAGE_KEY = 'fileSelector.progressIndex'; // NEW
+
   images: ImageEntry[] = [];
   currentImageIndex = 0;
 
-  // Strongly type your config
   data: TagGroup[] = groups as unknown as TagGroup[];
   baseLabels: string[] = baseline as unknown as string[];
 
@@ -53,16 +36,22 @@ export class FileSelectorComponent implements AfterViewInit {
   checkboxes!: QueryList<ImageCheckboxComponent>;
 
   ngAfterViewInit(): void {
-    // Initialize with baseline labels
     for (const basetag of this.baseLabels) {
       this.checkedLabels.add(basetag);
     }
     this.updateLabelText();
+    // Try to restore immediately if images were already present somehow (optional)
+    this.restoreProgressIfValid(); // NEW (safe no-op when images is empty)
+  }
+
+  /** Persist index on unload just in case */
+  @HostListener('window:beforeunload') // NEW
+  private onBeforeUnload(): void {
+    this.saveProgress();
   }
 
   /** Navigate away (kept as-is but safer) */
   hide(): void {
-    // If you have Angular routing, prefer Router.navigateByUrl('/').
     window.location.assign('http://localhost:4200/');
   }
 
@@ -89,7 +78,11 @@ export class FileSelectorComponent implements AfterViewInit {
       .then((loaded) => {
         loaded.sort((a, b) => a.name.localeCompare(b.name));
         this.images = loaded;
-        this.currentImageIndex = 0;
+
+        // Restore saved index ONLY if valid for this new image set; else default to 0.  // NEW
+        if (!this.restoreProgressIfValid()) {
+          this.currentImageIndex = 0;
+        }
       })
       .catch((error) => {
         console.error('Error loading images:', error);
@@ -103,14 +96,13 @@ export class FileSelectorComponent implements AfterViewInit {
     const prevIndex = this.currentImageIndex;
     const nextIndex = this.normalizeIndex(prevIndex + amount);
 
-    // If moving forward, download labels for the image we just finished viewing (prevIndex)
     if (amount > 0) {
       this.downloadTextFile(prevIndex);
     }
 
     this.currentImageIndex = nextIndex;
+    this.saveProgress(); // NEW
 
-    // Reset checkboxes and re-apply baseline
     this.uncheckAllCheckboxes();
     for (const basetag of this.baseLabels) {
       this.checkedLabels.add(basetag);
@@ -123,20 +115,18 @@ export class FileSelectorComponent implements AfterViewInit {
     const n = Number(value);
     if (!Number.isFinite(n) || !this.images.length) {
       this.currentImageIndex = 0;
+      this.saveProgress(); // NEW
       return;
     }
     this.currentImageIndex = this.normalizeIndex(n);
+    this.saveProgress(); // NEW
   }
 
-  /** Find the data URL for an example image by its filename */
   findImage(exampleImage: string): string {
     const found = this.images.find((img) => img.name === exampleImage);
     return found ? found.url : '';
-    // Optionally: fall back to current image preview if example not present
-    // return found ? found.url : (this.images[this.currentImageIndex]?.url ?? '');
   }
 
-  /** React to a checkbox change coming from a child */
   onCheckboxChange(checkboxStatus: { checked: boolean; label?: string; groupLabel?: string }): void {
     const { checked, label, groupLabel } = checkboxStatus;
 
@@ -145,20 +135,17 @@ export class FileSelectorComponent implements AfterViewInit {
       if (groupLabel) this.checkedLabels.add(groupLabel);
     } else if (label) {
       this.checkedLabels.delete(label);
-      // Do not remove groupLabel on uncheck to keep group defaults persistent unless desired
     }
 
     this.updateLabelText();
   }
 
-  /** Clear all checkboxes via child API (no direct DOM mutation) */
   uncheckAllCheckboxes(): void {
     this.checkboxes?.forEach((checkbox) => checkbox.setChecked(false));
     this.checkedLabels.clear();
     this.label = '';
   }
 
-  /** Create and trigger a .txt download of current labels for a given image index */
   private downloadTextFile(imageIndex: number): void {
     if (!this.images.length) return;
     if (imageIndex < 0 || imageIndex >= this.images.length) return;
@@ -176,20 +163,16 @@ export class FileSelectorComponent implements AfterViewInit {
     URL.revokeObjectURL(url);
   }
 
-  /** Keep labels textarea in sync */
   private updateLabelText(): void {
     this.label = Array.from(this.checkedLabels).join(', ');
   }
 
-  /** Wrap index within [0, images.length-1] */
   private normalizeIndex(idx: number): number {
     if (!this.images.length) return 0;
     const len = this.images.length;
-    // Proper modulo for negatives
     return ((idx % len) + len) % len;
   }
 
-  /** Keyboard shortcuts on the page */
   @HostListener('window:keydown', ['$event'])
   handleKeydown(event: KeyboardEvent): void {
     switch (event.key) {
@@ -210,7 +193,51 @@ export class FileSelectorComponent implements AfterViewInit {
     }
   }
 
-  /** trackBy helpers to avoid re-render churn */
   trackByGroup = (_: number, group: TagGroup) => group?.defaultTag ?? _;
   trackByTag = (_: number, tag: Tag) => tag?.name ?? _;
+
+  // ---------- Persistence helpers (NEW) ----------
+
+  /** Save current index to localStorage */
+  private saveProgress(): void {
+    try {
+      localStorage.setItem(
+        FileSelectorComponent.STORAGE_KEY,
+        JSON.stringify({ index: this.currentImageIndex })
+      );
+    } catch {
+      // ignore storage errors
+    }
+  }
+
+  /** Load saved index (number or null if not found/invalid) */
+  private loadSavedIndex(): number | null {
+    try {
+      const raw = localStorage.getItem(FileSelectorComponent.STORAGE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as { index?: unknown };
+      const idx = Number(parsed?.index);
+      return Number.isFinite(idx) ? idx : null;
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * Applies saved index if it’s valid for current images.
+   * Returns true if applied; false otherwise.
+   * Rules:
+   *  - if no images -> false
+   *  - if saved index is null/NaN -> false
+   *  - if saved index >= images.length -> false (fallback handled by caller)
+   */
+  private restoreProgressIfValid(): boolean {
+    if (!this.images.length) return false;
+    const saved = this.loadSavedIndex();
+    if (saved == null) return false;
+    if (saved >= this.images.length || saved < 0) return false; // “unless saved index is bigger…”
+    this.currentImageIndex = saved;
+    return true;
+    // (We could also reset checkboxes/baseline here if needed)
+  }
 }
